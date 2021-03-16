@@ -1,0 +1,72 @@
+﻿@page
+@model AktivStyringRazor.Pages.Persons.GetAllPersonsModel
+@{
+    ViewData["Title"] = "GetAllPersons";
+}
+<p>
+    <a asp-page="/Personer/Create">Create New Member</a>
+</p>
+
+
+<form>
+    <p>
+        Search: <input type="text" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 style="color:aquamarine"> List of Members</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Phone No.
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Membership No.
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Persons.Count() != 0)
+        {
+            @foreach (var item in Model.Persons)
+            {
+        <tr>
+            <td>
+                @item.Navn
+            </td>
+            <td>
+                @item.Telefon
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @item.Adresse
+            </td>
+            <td>
+                @item.MedlemsNr
+            </td>
+            <td>
+                <p>
+                    <a asp-page="/Personer/Delete" asp-route-id="@item.PersonId">Delete</a>
+                </p>
+            </td>
+        </tr>
+            }
+        }
+</table>
+
+

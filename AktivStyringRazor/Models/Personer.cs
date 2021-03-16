@@ -7,6 +7,8 @@ namespace AktivStyringRazor.Models
 {
     public class Personer
     {
+
+        public int PersonId { get; set; }
         public string Navn { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
@@ -17,8 +19,9 @@ namespace AktivStyringRazor.Models
         {
         }
 
-        public Personer(string navn, string email, string telefon, string adresse, string medlemsNr)
+        public Personer(int personId, string navn, string email, string telefon, string adresse, string medlemsNr)
         {
+            PersonId = personId;
             Navn = navn;
             Email = email;
             Telefon = telefon;
@@ -29,7 +32,7 @@ namespace AktivStyringRazor.Models
 
         public override string ToString()
         {
-            return $"{nameof(Navn)}: {Navn}, {nameof(Email)}: {Email}, {nameof(Telefon)}: {Telefon}, {nameof(Adresse)}: {Adresse}, {nameof(MedlemsNr)}: {MedlemsNr}";
+            return $"{nameof(PersonId)}: {PersonId}, {nameof(Navn)}: {Navn}, {nameof(Email)}: {Email}, {nameof(Telefon)}: {Telefon}, {nameof(Adresse)}: {Adresse}, {nameof(MedlemsNr)}: {MedlemsNr}";
         }
     }
 }

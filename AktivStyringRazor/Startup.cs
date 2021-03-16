@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AktivStyringRazor.Services;
+using AktivStyringRazor.Services.Interfaces;
 
 namespace AktivStyringRazor
 {
@@ -24,6 +26,7 @@ namespace AktivStyringRazor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<IPersonerService, PersonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
