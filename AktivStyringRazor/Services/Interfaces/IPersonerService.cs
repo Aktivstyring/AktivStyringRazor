@@ -10,8 +10,8 @@ namespace AktivStyringRazor.Services.Interfaces
     {
         Task<List<Personer>> GetPersonerByNavnAsync();
         Task<List<Personer>>GetPersonerAsync();
-        Task AddPersonerAsync(Personer personer);
-        Task<Personer> GetPersonerByIdAsync(string MedlemsNr);
+        Task<bool> AddPersonerAsync(Personer personer);
+        Task<Personer> GetPersonerByIdAsync(int personId);
 
     }
 }
