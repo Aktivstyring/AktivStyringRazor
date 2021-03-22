@@ -44,9 +44,9 @@ namespace AktivStyringRazor.Services
                     { aktivType = "null"; }
                     else { aktivType = reader.GetString(0);}
 
-                    int aktivTypeOrder;
+                    int? aktivTypeOrder;
                     if (reader.IsDBNull(1))
-                    { aktivTypeOrder = "null"; }
+                    { aktivTypeOrder = null; }
                     else
                     { aktivTypeOrder = reader.GetInt32(1);}
 

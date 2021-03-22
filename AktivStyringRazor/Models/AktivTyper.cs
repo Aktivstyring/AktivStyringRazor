@@ -8,14 +8,14 @@ namespace AktivStyringRazor.Models
     public class AktivTyper
     {
         public string AktivType { get; set; }
-        public int AktivTypeOrder { get; set; }
+        public int? AktivTypeOrder { get; set; }
         public int AktivTypeID { get; set; }
 
         public AktivTyper()
         {
         }
 
-        public AktivTyper(string aktivType, int aktivTypeOrder, int aktivTypeId)
+        public AktivTyper(string aktivType, int? aktivTypeOrder, int aktivTypeId)
         {
             AktivType = aktivType;
             AktivTypeOrder = aktivTypeOrder;
