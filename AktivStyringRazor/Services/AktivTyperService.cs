@@ -74,15 +74,12 @@ namespace AktivStyringRazor.Services
                 while (await reader.ReadAsync())
                 {
                     string aktivType;
-                    if (reader.IsDBNull(0))
-                    { aktivType = "null"; }
+                    if (reader.IsDBNull(0)) { aktivType = "null"; }
                     else { aktivType = reader.GetString(0);}
 
                     int? aktivTypeOrder;
-                    if (reader.IsDBNull(1))
-                    { aktivTypeOrder = null; }
-                    else
-                    { aktivTypeOrder = reader.GetInt32(1);}
+                    if (reader.IsDBNull(1)) { aktivTypeOrder = null; }
+                    else { aktivTypeOrder = reader.GetInt32(1);}
 
                     int aktivTypeId = reader.GetInt32(2);
 
