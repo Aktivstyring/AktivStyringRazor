@@ -9,7 +9,7 @@ namespace AktivStyringRazor.Models
     {
         public int PlaceringID { get; set; }
         public string Placering { get; set; }
-        public int PlaceringSort { get; set; }
+        public int? PlaceringSort { get; set; }
 
 
         public Placeringer()
@@ -17,7 +17,7 @@ namespace AktivStyringRazor.Models
         }
 
 
-        public Placeringer(int placeringId, string placering, int placeringSort)
+        public Placeringer(int placeringId, string placering, int? placeringSort)
         {
             PlaceringID = placeringId;
             Placering = placering;
