@@ -1,0 +1,59 @@
+﻿@page
+@model AktivStyringRazor.Pages.AktivTyper.AktivTyperModel
+@{
+    ViewData["Title"] = "GetAllAktivTyper";
+}
+<p>
+    <a asp-page="/AktivTyper/Create">Create New AktivType</a>
+</p>
+
+
+<form>
+    <p>
+        Search: <input type="text" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 style="color:aquamarine"> List of AktivTyper</h4>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            AktivType
+        </th>
+        <th>
+            AktivTyperOrder
+        </th>
+        <th>
+            AktivtypeID
+        </th>
+        
+
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.AktivTypes.Count() != 0)
+    {
+        @foreach (var item in Model.AktivTypes)
+        {
+            <tr>
+                <td>
+                    @item.AktivType
+                </td>
+                <td>
+                    @item.AktivTypeOrder
+                </td>
+                <td>
+                    @item.AktivTypeID
+                </td>
+                <td>
+                    <p>
+                        <a asp-page="/AktivTyper/Delete" asp-route-id="@item.AktivTypeID">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    }
+</table>

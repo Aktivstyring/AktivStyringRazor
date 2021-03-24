@@ -6,11 +6,12 @@ using AktivStyringRazor.Models;
 
 namespace AktivStyringRazor.Services.Interfaces
 {
-    interface IAktivTyperService
+    public interface IAktivTyperService
     {
         Task<List<AktivTyper>> GetAktivTyperByAktivTypeAsync();
         Task<List<AktivTyper>> GetAktivtyperAsync();
-        Task addAktivTyperAsync(AktivTyper aktivTyper);
-        Task<AktivTyper> GetAktivTyperByIdAsync(string AktivTypeID);
+        Task<bool> AddAktivTyperAsync(AktivTyper aktivTyper);
+        Task<AktivTyper> GetAktivTyperByIdAsync(int AktivTypeID);
+        Task<AktivTyper> DeleteAktivTypeAsync(int aktivTypeID);
     }
 }
