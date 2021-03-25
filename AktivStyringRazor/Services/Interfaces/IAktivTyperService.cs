@@ -11,7 +11,7 @@ namespace AktivStyringRazor.Services.Interfaces
         Task<List<AktivTyper>> GetAktivTyperByAktivTypeAsync();
         Task<List<AktivTyper>> GetAktivtyperAsync();
         Task<bool> AddAktivTyperAsync(AktivTyper aktivTyper);
-        Task<AktivTyper> GetAktivTyperByIdAsync(int AktivTypeID);
+        Task<AktivTyper> GetAktivTyperByIdAsync(int aktivTypeID);
         Task<AktivTyper> DeleteAktivTypeAsync(int aktivTypeID);
     }
 }

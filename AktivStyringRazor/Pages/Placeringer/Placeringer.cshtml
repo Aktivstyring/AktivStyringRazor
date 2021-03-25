@@ -1,0 +1,59 @@
+﻿@page
+@model AktivStyringRazor.Pages.Placeringer.PlaceringerModel
+@{
+    ViewData["Title"] = "Placeringer";
+}
+
+<p>
+    <a asp-page="Placeringer/Create">Create New Placering</a>
+</p>
+
+<form>
+    <p>
+        Search: <input type="text" />
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
+
+<h4 style="color:black"> List of Placeringer</h4>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            PlaceringID
+        </th>
+        <th>
+            Placering
+        </th>
+        <th>
+            PlaceringSort
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Placeringer.Count() != 0)
+    {
+        @foreach (var item in Model.Placeringer)
+        {
+            <tr>
+                <td>
+                    @item.PlaceringID
+                </td>
+                <td>
+                    @item.Placering
+                </td>
+                <td>
+                    @item.PlaceringSort
+                </td>
+                <td>
+                    <p>
+                        <a asp-page="/Placeringer/Delete" asp-route-id="@item.PlaceringID">Delete</a>
+                    </p>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

@@ -28,6 +28,7 @@ namespace AktivStyringRazor
             services.AddRazorPages();
             services.AddTransient<IPersonerService, PersonService>();
             services.AddTransient<IAktivTyperService, AktivTyperService>();
+            services.AddTransient<IPlaceringerService, PlaceringService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
