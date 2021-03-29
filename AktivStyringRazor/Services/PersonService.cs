@@ -28,11 +28,11 @@ namespace AktivStyringRazor.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(insertSql, connection);
-                command.Parameters.AddWithValue("@Navn", personer.Navn);
-                command.Parameters.AddWithValue("@Telefon", personer.Telefon);
-                command.Parameters.AddWithValue("@Email", personer.Email);
-                command.Parameters.AddWithValue("@Adresse", personer.Adresse);
-                command.Parameters.AddWithValue("@MedlemsNr", personer.MedlemsNr);
+                if (personer.Navn==null) { command.Parameters.AddWithValue("@Navn", "null"); } else { command.Parameters.AddWithValue("@Navn", personer.Navn); }
+                if (personer.Telefon == null) { command.Parameters.AddWithValue("@Telefon", "null"); } else { command.Parameters.AddWithValue("@Telefon", personer.Telefon); }
+                if (personer.Email == null) { command.Parameters.AddWithValue("@Email", "null"); } else { command.Parameters.AddWithValue("@Email", personer.Email); }
+                if (personer.Adresse == null) { command.Parameters.AddWithValue("@Adresse", "null"); } else { command.Parameters.AddWithValue("@Adresse", personer.Adresse); }
+                if (personer.MedlemsNr == null) { command.Parameters.AddWithValue("@MedlemsNr", "null"); } else { command.Parameters.AddWithValue("@MedlemsNr", personer.MedlemsNr); }
                 await command.Connection.OpenAsync();
                 int noOfRows = await command.ExecuteNonQueryAsync();
                 if (noOfRows == 1)
