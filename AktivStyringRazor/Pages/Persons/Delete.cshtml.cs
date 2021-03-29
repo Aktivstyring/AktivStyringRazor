@@ -29,6 +29,7 @@ namespace AktivStyringRazor.Pages.Persons
         public async Task OnPostAsync()
         {
             await personService.DeletePersonerAsync(personId);
+            int a = 1;
         }
     }
 }
