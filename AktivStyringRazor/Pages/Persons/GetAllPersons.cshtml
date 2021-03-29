@@ -44,22 +44,11 @@
             @foreach (var item in Model.Persons)
             {
         <tr>
-            <td>
-                @item.Navn
-            </td>
-            <td>
-                @item.Telefon
-            </td>
-            <td>
-                @item.Email
-            </td>
-            <td>
-                @item.Adresse
-            </td>
-            <td>
-                @item.MedlemsNr
-            </td>
-            <td>
+            <td>@item.Navn</td>
+            <td>@item.Telefon</td>
+            <td>@item.Email</td>
+            <td>@item.Adresse</td>
+            <td>@item.MedlemsNr</td><td>
                 <p>
                     <a asp-page="/Personer/Delete" asp-route-id="@item.PersonId">Delete</a>
                 </p>
