@@ -1,0 +1,15 @@
+﻿@page "{id}"
+@model AktivStyringRazor.Pages.Persons.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post">
+    <label asp-for="Person.Navn"></label> <input type="text" asp-for="Person.Navn" disabled="disabled"/><br>
+    <label asp-for="Person.Adresse"></label> <input type="text" asp-for="Person.Adresse" disabled="disabled"/><br>
+    <label asp-for="Person.Email"></label> <input type="text" asp-for="Person.Email" disabled="disabled"/><br>
+    <label asp-for="Person.Telefon"></label> <input asp-for="Person.Telefon" disabled="disabled"/><br>
+    <label asp-for="Person.MedlemsNr"></label> <input asp-for="Person.MedlemsNr" disabled="disabled"/><br>
+    <input type="submit" value="Delete"/>
+</form>
+
