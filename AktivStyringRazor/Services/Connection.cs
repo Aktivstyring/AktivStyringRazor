@@ -14,8 +14,16 @@ namespace AktivStyringRazor.Services
         public Connection(IConfiguration configuration)
         {
             Configuration = configuration;
-            connectionString = Configuration["ConnectionStrings:ThomasConnection"];
+            //connectionString = Configuration["ConnectionStrings:ThomasConfiguration"];
+            //connectionString = Configuration["ConnectionStrings:DefaultConnection"];
+            connectionString = Configuration["ConnectionStrings:ChristianConnection"];
 
         }
     }
 }
+
+
+
+
+//ChristianConnection
+//ChristianConfiguration

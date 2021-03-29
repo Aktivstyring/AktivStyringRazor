@@ -12,6 +12,7 @@ namespace AktivStyringRazor.Services.Interfaces
         Task<List<Personer>>GetPersonerAsync();
         Task<bool> AddPersonerAsync(Personer personer);
         Task<Personer> GetPersonerByIdAsync(int personId);
+        Task<Personer> DeletePersonerAsync(int personId);
 
     }
 }

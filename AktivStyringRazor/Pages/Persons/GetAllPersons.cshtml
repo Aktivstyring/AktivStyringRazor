@@ -4,7 +4,7 @@
     ViewData["Title"] = "GetAllPersons";
 }
 <p>
-    <a asp-page="/Personer/Create">Create New Member</a>
+    <a asp-page="/Persons/Create">Create New Member</a>
 </p>
 
 
@@ -50,7 +50,7 @@
             <td>@item.Adresse</td>
             <td>@item.MedlemsNr</td><td>
                 <p>
-                    <a asp-page="/Personer/Delete" asp-route-id="@item.PersonId">Delete</a>
+                    <a asp-page="/Persons/Delete" asp-route-id="@item.PersonId">Delete</a>
                 </p>
             </td>
         </tr>
