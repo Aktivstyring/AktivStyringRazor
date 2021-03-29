@@ -14,7 +14,7 @@ namespace AktivStyringRazor.Services
 
 
         private String queryString = "select * from Personer";
-        private string queryById = "select from Personer where PersonId = @ID";
+        private string queryById = "select * from Personer where PersonId = @ID";
         private string insertSql = "insert into Personer(Navn, Telefon, Email, Adresse, MedlemsNr) values(@Navn, @Telefon, @Email, @Adresse, @MedlemsNr)";
         private string queryDelete = "delete from Personer where PersonId = @ID";
 
@@ -110,7 +110,7 @@ namespace AktivStyringRazor.Services
                 await command.Connection.OpenAsync();
 
                 SqlDataReader reader = await command.ExecuteReaderAsync();
-                if (await reader.ReadAsync())
+                while (await reader.ReadAsync())
                 {
                     int id = reader.GetInt32(0);
                     string navn;
