@@ -1,0 +1,73 @@
+﻿@page
+@model AktivStyringRazor.Pages.LageroptællingModel
+@{
+    ViewData["Title"] = "Lageroptælling";
+}
+
+
+
+<p>
+    <a asp-page="Lageroptælling/Create">Create New Lageroptælling</a>
+</p>
+
+<form>
+    <p>
+        Search: <input type="text" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 style="color:black"> List of Lageroptællinger</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                AktivID
+            </th>
+            <th>
+                Placering
+            </th>
+            <th>
+                PlaceringDato
+            </th>
+            <th>
+                PlaceringNote
+            </th>
+            <th>
+                LinkID
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Lageroptællinger.Count() != 0)
+        {
+            @foreach (var item in Model.Lageroptællinger)
+            {
+                <tr>
+                    <td>
+                        @item.AktivID
+                    </td>
+                    <td>
+                        @item.Placering
+                    </td>
+                    <td>
+                        @item.PlaceringDato
+                    </td>
+                    <td>
+                        @item.PlaceringNote
+                    </td>
+                    <td>
+                        @item.LinkID
+                    </td>
+                    <td>
+                        <p>
+                            <a asp-page="/Lageroptælling/Delete" asp-route-id="@item.LinkID">Delete</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
