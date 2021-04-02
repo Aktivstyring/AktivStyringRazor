@@ -13,9 +13,11 @@ namespace AktivStyringRazor.Models
         public string ModelUddyb { get; set; }
         public string SerieNr { get; set; }
         public string Kaldenavn { get; set; }
-        public int HarStregkode { get; set; }
-        public int FraKommando { get; set; }
-        public int Privat { get; set; }
+        public int? AktivstatusID { get; set; }
+        public string Detaljer { get; set; }
+        public int? HarStregkode { get; set; }
+        public int? FraKommando { get; set; }
+        public int? Privat { get; set; }
         public DateTime Købt { get; set; }
         public DateTime Udskrevet { get; set; }
         public DateTime Oprettet { get; set; }

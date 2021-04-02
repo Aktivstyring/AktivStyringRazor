@@ -6,7 +6,7 @@ using AktivStyringRazor.Models;
 
 namespace AktivStyringRazor.Services.Interfaces
 {
-    public class ILageroptællingService
+    public interface ILageroptællingService
     {
         Task<List<Lageroptælling>> GetLageroptællingByLinkIDAsync();
         Task<List<Lageroptælling>> GetLageroptællingAsync();
