@@ -9,7 +9,7 @@ namespace AktivStyringRazor.Models
     {
         public int AktivID { get; set; }
         public int Placering { get; set; }
-        public DateTime PlaceringDato { get; set; }
+        public DateTime? PlaceringDato { get; set; }
         public string PlaceringNote { get; set; }
         public int LinkID { get; set; }
 
@@ -17,7 +17,7 @@ namespace AktivStyringRazor.Models
         {
         }
 
-        public Lageroptælling(int aktivId, int placering, DateTime placeringDato, string placeringNote, int linkId)
+        public Lageroptælling(int aktivId, int placering, DateTime? placeringDato, string placeringNote, int linkId)
         {
             AktivID = aktivId;
             Placering = placering;

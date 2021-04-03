@@ -110,7 +110,7 @@ namespace AktivStyringRazor.Services
                     int placering = reader.GetInt32(1);
 
                     DateTime placeringDato;
-                    if (reader.IsDBNull(1)) { placeringDato = "null"; }
+                    if (reader.IsDBNull(1)) { placeringDato = null; }
                     else { placeringDato = reader.GetDateTime(2); }
 
                     string placeringNote;
