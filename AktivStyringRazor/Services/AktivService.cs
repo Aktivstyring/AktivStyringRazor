@@ -208,53 +208,246 @@ namespace AktivStyringRazor.Services.AktivService
                 else { return false; }
             }
         }
-        /*
 
-        @AktivTypeID        @Maerke        @Model        @ModelUddyb
+        /*
+                @AktivTypeID        @Maerke        @Model        @ModelUddyb
         @SerieNr        @Kaldenavn        @AktivstatusID        @Detaljer
         @HarStregkode        @FraKommando        @Privat        @Købt
         @Udskrevet        @Oprettet         @Opdateret 
 
-        
-                if (aktiv.AktivTypeID == null)
-                {
-                    command.Parameters.AddWithValue("@", null);
-                }
-                else
-                {
-                    command.Parameters.AddWithValue("@", aktiv);
-                }
 
-        AktivTypeID
-        Maerke
-        Model
-        ModelUddyb 
-        SerieNr
-        Kaldenavn
-        AktivstatusID
-        Detaljer
-        HarStregkode
-        FraKommando
-        Privat
-        Købt
-        Udskrevet
-        Oprettet
-        Opdateret
+        AktivTypeID        Maerke        Model        ModelUddyb 
+        SerieNr        Kaldenavn        AktivstatusID        Detaljer
+        HarStregkode        FraKommando        Privat        Købt
+        Udskrevet        Oprettet        Opdateret
          */
-        public Task DeleteAktivAsync(Aktiv aktiv)
+        public async Task<Aktiv> DeleteAktivAsync(int aktivId)
         {
-            throw new NotImplementedException();
+            Aktiv aktiv = await GetAktivById(aktivId);
+            if (aktiv == null) { return null; }
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryDelete, connection);
+                command.Parameters.AddWithValue("@ID", aktivId);
+                await command.Connection.OpenAsync();
+                int noOfRows = await command.ExecuteNonQueryAsync();
+                if (noOfRows == 1) { return aktiv; }
+                return null;
+            }
         }
 
-        public Task<Aktiv> GetAktivById()
+        public async Task<Aktiv> GetAktivById(int aktivId)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(queryById, connection);
+                command.Parameters.AddWithValue("@ID", aktivId);
+                await command.Connection.OpenAsync();
+
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    int aktiv = reader.GetInt32(0);
+
+                    int aktivTypeID = reader.GetInt32(1);
+
+                    string maerke;
+                    if (reader.IsDBNull(2)) { maerke = "null"; }
+                    else { maerke = reader.GetString(2); }
+
+                    string model;
+                    if (reader.IsDBNull(3)) { model = "null"; }
+                    else { model = reader.GetString(3); }
+
+                    string modelUddyb;
+                    if (reader.IsDBNull(4)) { modelUddyb = "null"; }
+                    else { modelUddyb = reader.GetString(4); }
+
+                    string serieNr;
+                    if (reader.IsDBNull(5)) { serieNr = "null"; }
+                    else { serieNr = reader.GetString(5); }
+
+                    string kaldenavn;
+                    if (reader.IsDBNull(6)) { kaldenavn = "null"; }
+                    else { kaldenavn = reader.GetString(6); }
+
+                    int? aktivstatusID;
+                    if (reader.IsDBNull(7)) { aktivstatusID = null; }
+                    else { aktivstatusID = reader.GetInt32(7); }
+
+                    string detaljer;
+                    if (reader.IsDBNull(8)) { detaljer = "null"; }
+                    else { detaljer = reader.GetString(8); }
+
+                    int? harStregKode;
+                    if (reader.IsDBNull(9)) { harStregKode = null; }
+                    else { harStregKode = reader.GetInt32(9); }
+
+                    int? fraKommando;
+                    if (reader.IsDBNull(10)) { fraKommando = null; }
+                    else { fraKommando = reader.GetInt32(10); }
+
+                    int? privat;
+                    if (reader.IsDBNull(11)) { privat = null; }
+                    else { privat = reader.GetInt32(11); }
+
+                    DateTime købt;
+                    //if (reader.IsDBNull(12)) { købt = null; }
+                    //else 
+                    { købt = reader.GetDateTime(12); }
+
+                    DateTime udskrevet;
+                    //if (reader.IsDBNull(13)) { købt = null; }
+                    //else 
+                    { udskrevet = reader.GetDateTime(13); }
+
+                    DateTime oprettet;
+                    //if (reader.IsDBNull(14)) { købt = null; }
+                    //else 
+                    { oprettet = reader.GetDateTime(14); }
+
+                    DateTime opdateret;
+                    //if (reader.IsDBNull(15)) { købt = null; }
+                    //else 
+                    { opdateret = reader.GetDateTime(15); }
+
+                    Aktiv aktiver = new Aktiv(aktiv, aktivTypeID, maerke, model, modelUddyb, serieNr, kaldenavn, aktivstatusID, detaljer, harStregKode, fraKommando, privat, købt, udskrevet, oprettet, opdateret);
+                    return aktiver;
+                }
+                return null;
+            }
         }
 
-        public Task<List<Aktiv>> GetAktiverAsync()
+        /*
+        string aktivType;
+                    if (reader.IsDBNull(0)) { aktivType = "null"; }
+                    else { aktivType = reader.GetString(0); }
+
+                    int? aktivTypeOrder;
+                    if (reader.IsDBNull(1))
+                    { aktivTypeOrder = null; }
+                    else
+                    { aktivTypeOrder = reader.GetInt32(1); }
+
+                    int aktivTypeID = reader.GetInt32(2);
+
+        */
+
+        public async Task<List<Aktiv>> GetAktiverAsync()
         {
-            throw new NotImplementedException();
+            List<Aktiv> aktiver = new List<Aktiv>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                await command.Connection.OpenAsync();
+
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    int aktiv = reader.GetInt32(0);
+
+                    int aktivTypeID = reader.GetInt32(1);
+
+                    string maerke;
+                    if (reader.IsDBNull(2)) { maerke = "null"; }
+                    else { maerke = reader.GetString(2); }
+
+                    string model;
+                    if (reader.IsDBNull(3)) { model = "null"; }
+                    else { model = reader.GetString(3); }
+
+                    string modelUddyb;
+                    if (reader.IsDBNull(4)) { modelUddyb = "null"; }
+                    else { modelUddyb = reader.GetString(4); }
+
+                    string serieNr;
+                    if (reader.IsDBNull(5)) { serieNr = "null"; }
+                    else { serieNr = reader.GetString(5); }
+
+                    string kaldenavn;
+                    if (reader.IsDBNull(6)) { kaldenavn = "null"; }
+                    else { kaldenavn = reader.GetString(6); }
+
+                    int? aktivstatusID;
+                    if (reader.IsDBNull(7)) { aktivstatusID = null; }
+                    else { aktivstatusID = reader.GetInt32(7); }
+
+                    string detaljer;
+                    if (reader.IsDBNull(8)) { detaljer = "null"; }
+                    else { detaljer = reader.GetString(8); }
+
+                    int? harStregKode;
+                    if (reader.IsDBNull(9)) { harStregKode = null; }
+                    else { harStregKode = reader.GetInt32(9); }
+
+                    int? fraKommando;
+                    if (reader.IsDBNull(10)) { fraKommando = null; }
+                    else { fraKommando = reader.GetInt32(10); }
+
+                    int? privat;
+                    if (reader.IsDBNull(11)) { privat = null; }
+                    else { privat = reader.GetInt32(11); }
+
+                    DateTime købt;
+                    //if (reader.IsDBNull(12)) { købt = null; }
+                    //else 
+                    { købt = reader.GetDateTime(12); }
+
+                    DateTime udskrevet;
+                    //if (reader.IsDBNull(13)) { købt = null; }
+                    //else 
+                    { udskrevet = reader.GetDateTime(13); }
+
+                    DateTime oprettet;
+                    //if (reader.IsDBNull(14)) { købt = null; }
+                    //else 
+                    { oprettet = reader.GetDateTime(14); }
+
+                    DateTime opdateret;
+                    //if (reader.IsDBNull(15)) { købt = null; }
+                    //else 
+                    { opdateret = reader.GetDateTime(15); }
+
+                    Aktiv aktiverlist = new Aktiv(aktiv, aktivTypeID, maerke, model, modelUddyb, serieNr, kaldenavn, aktivstatusID, detaljer, harStregKode, fraKommando, privat, købt, udskrevet, oprettet, opdateret);
+                    aktiver.Add(aktiverlist);
+                }
+            }
+
+            return aktiver;
         }
+
+        /*
+         public async Task<List<AktivTyper>> GetAktivtyperAsync()
+        {
+            List<AktivTyper> aktivTyper = new List<AktivTyper>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                await command.Connection.OpenAsync();
+
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    string aktivType;
+                    if (reader.IsDBNull(0)) { aktivType = "null"; }
+                    else { aktivType = reader.GetString(0);}
+
+                    int? aktivTypeOrder;
+                    if (reader.IsDBNull(1)) { aktivTypeOrder = null; }
+                    else { aktivTypeOrder = reader.GetInt32(1);}
+
+                    int aktivTypeId = reader.GetInt32(2);
+
+                    AktivTyper aktivTypr = new AktivTyper(aktivType, aktivTypeOrder, aktivTypeId);
+                    aktivTyper.Add(aktivTypr);
+                }
+            }
+
+            return aktivTyper;
+        }
+        */
+
     }
 }
 

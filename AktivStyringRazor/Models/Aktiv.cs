@@ -7,6 +7,7 @@ namespace AktivStyringRazor.Models
 {
     public class Aktiv
     {
+        public int AktivID { get; set; }
         public int AktivTypeID { get; set; }
         public string Maerke { get; set; }
         public string Model { get; set; }
@@ -27,8 +28,9 @@ namespace AktivStyringRazor.Models
         {
 
         }
-        public Aktiv(int aktivTypeId, string maerke, string model, string modelUddyb, string serieNr, string kaldenavn, int? aktivstatusId, string detaljer, int? harStregkode, int? fraKommando, int? privat, DateTime købt, DateTime udskrevet, DateTime oprettet, DateTime opdateret)
+        public Aktiv(int aktivID, int aktivTypeId, string maerke, string model, string modelUddyb, string serieNr, string kaldenavn, int? aktivstatusId, string detaljer, int? harStregkode, int? fraKommando, int? privat, DateTime købt, DateTime udskrevet, DateTime oprettet, DateTime opdateret)
         {
+            AktivID = aktivID;
             AktivTypeID = aktivTypeId;
             Maerke = maerke;
             Model = model;
