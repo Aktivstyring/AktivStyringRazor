@@ -23,6 +23,27 @@ namespace AktivStyringRazor.Models
         public DateTime Oprettet { get; set; }
         public DateTime Opdateret { get; set; }
 
+        public Aktiv()
+        {
 
+        }
+        public Aktiv(int aktivTypeId, string maerke, string model, string modelUddyb, string serieNr, string kaldenavn, int? aktivstatusId, string detaljer, int? harStregkode, int? fraKommando, int? privat, DateTime købt, DateTime udskrevet, DateTime oprettet, DateTime opdateret)
+        {
+            AktivTypeID = aktivTypeId;
+            Maerke = maerke;
+            Model = model;
+            ModelUddyb = modelUddyb;
+            SerieNr = serieNr;
+            Kaldenavn = kaldenavn;
+            AktivstatusID = aktivstatusId;
+            Detaljer = detaljer;
+            HarStregkode = HarStregkode;
+            FraKommando = fraKommando;
+            Privat = privat;
+            Købt = købt;
+            Udskrevet =udskrevet;
+            Oprettet = oprettet;
+            Opdateret = opdateret;
+        }
     }
 }
