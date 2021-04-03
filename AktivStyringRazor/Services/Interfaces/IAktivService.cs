@@ -8,10 +8,12 @@ namespace AktivStyringRazor.Services.Interfaces
 {
     public interface IAktivService
     {
+
+
         Task<List<Aktiv>> GetAktiverAsync();
-        Task AddAktivAsync(Aktiv aktiv);
-        Task DeleteAktivAsync(Aktiv aktiv);
+        Task<bool> AddAktivAsync(Aktiv aktiv);
         Task<Aktiv> GetAktivById();
+        Task DeleteAktivAsync(Aktiv aktiv);
 
     }
 }
