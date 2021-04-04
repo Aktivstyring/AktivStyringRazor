@@ -223,7 +223,7 @@ namespace AktivStyringRazor.Services.AktivService
          */
         public async Task<Aktiv> DeleteAktivAsync(int aktivId)
         {
-            Aktiv aktiv = await GetAktivById(aktivId);
+            Aktiv aktiv = await GetAktivByIdAsync(aktivId);
             if (aktiv == null) { return null; }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -236,7 +236,7 @@ namespace AktivStyringRazor.Services.AktivService
             }
         }
 
-        public async Task<Aktiv> GetAktivById(int aktivId)
+        public async Task<Aktiv> GetAktivByIdAsync(int aktivId)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -318,21 +318,6 @@ namespace AktivStyringRazor.Services.AktivService
                 return null;
             }
         }
-
-        /*
-        string aktivType;
-                    if (reader.IsDBNull(0)) { aktivType = "null"; }
-                    else { aktivType = reader.GetString(0); }
-
-                    int? aktivTypeOrder;
-                    if (reader.IsDBNull(1))
-                    { aktivTypeOrder = null; }
-                    else
-                    { aktivTypeOrder = reader.GetInt32(1); }
-
-                    int aktivTypeID = reader.GetInt32(2);
-
-        */
 
         public async Task<List<Aktiv>> GetAktiverAsync()
         {
@@ -416,53 +401,5 @@ namespace AktivStyringRazor.Services.AktivService
 
             return aktiver;
         }
-
-        /*
-         public async Task<List<AktivTyper>> GetAktivtyperAsync()
-        {
-            List<AktivTyper> aktivTyper = new List<AktivTyper>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                await command.Connection.OpenAsync();
-
-                SqlDataReader reader = await command.ExecuteReaderAsync();
-                while (await reader.ReadAsync())
-                {
-                    string aktivType;
-                    if (reader.IsDBNull(0)) { aktivType = "null"; }
-                    else { aktivType = reader.GetString(0);}
-
-                    int? aktivTypeOrder;
-                    if (reader.IsDBNull(1)) { aktivTypeOrder = null; }
-                    else { aktivTypeOrder = reader.GetInt32(1);}
-
-                    int aktivTypeId = reader.GetInt32(2);
-
-                    AktivTyper aktivTypr = new AktivTyper(aktivType, aktivTypeOrder, aktivTypeId);
-                    aktivTyper.Add(aktivTypr);
-                }
-            }
-
-            return aktivTyper;
-        }
-        */
-
     }
 }
-
-
-
-
-/*
-
-List<Aktiv> aktiver;
-string connectionString;
-public IConfiguration Configuration { get; }
-public AktivService(IConfiguration configuration)
-{
-    Configuration = configuration;
-    connectionString = Configuration["ConnectionStrings:DefaultConfiguration"];
-    aktiver = new List<Aktiv>();
-}
-*/
