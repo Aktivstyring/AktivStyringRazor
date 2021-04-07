@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using AktivStyringRazor.Models;
-using AktivStyringRazor.Models.SamleObjekter;
 using AktivStyringRazor.Services.Interfaces;
 using AktivStyringRazor.Services;
 
@@ -15,7 +14,8 @@ namespace AktivStyringRazor.Pages.Persons
     {
         private IPersonerService pService;
         private AktivudleveringService aUService;
-        public ProfilData profilData=new ProfilData(); 
+        public Personer Person { get; set; }
+        public List<Aktivudlevering> AktivUdleveringer { get; set; }
 
         public ProfilModel(IPersonerService personService, AktivudleveringService akUdService)
         {
@@ -24,8 +24,8 @@ namespace AktivStyringRazor.Pages.Persons
         }
         public async Task OnGetAsync(int id)
         {
-            profilData.Person = await pService.GetPersonerByIdAsync(id);
-            profilData.AktivUdleveringer = await aUService.GetAktivudleveringerByPersonId(id);
+            Person = await pService.GetPersonerByIdAsync(id);
+            AktivUdleveringer = await aUService.GetAktivudleveringerByPersonId(id);
 
         }
     }

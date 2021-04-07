@@ -5,11 +5,11 @@
 }
 
 <h2>Profil</h2>
-<div><p><b>Navn:</b> @Model.profilData.Person.Navn;</p></div>
-<div><p><b>Email:</b> @Model.profilData.Person.Email;</p></div>
-<div><p><b>TelefonNr:</b> @Model.profilData.Person.Telefon.ToString();</p></div>
-<div><p><b>MedlemsNr:</b> @Model.profilData.Person.MedlemsNr;</p></div>
-<div><p><b>PersonId:</b> @Model.profilData.Person.PersonId;</p></div>
+<div><p><b>Navn:</b> @Model.Person.Navn;</p></div>
+<div><p><b>Email:</b> @Model.Person.Email;</p></div>
+<div><p><b>TelefonNr:</b> @Model.Person.Telefon.ToString();</p></div>
+<div><p><b>MedlemsNr:</b> @Model.Person.MedlemsNr;</p></div>
+<div><p><b>PersonId:</b> @Model.Person.PersonId;</p></div>
 
 
 <h2>Dine Udleveringer</h2>
@@ -31,9 +31,9 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.profilData.AktivUdleveringer.Count() != 0)
+        @if (Model.AktivUdleveringer.Count() != 0)
         {
-            @foreach (var item in Model.profilData.AktivUdleveringer)
+            @foreach (var item in Model.AktivUdleveringer)
             {
                 <tr>
                     <td>@item.AktivID</td>
