@@ -5,19 +5,19 @@ using System.Threading.Tasks;
 
 namespace AktivStyringRazor.Models
 {
-    public class Aktivudleveringer
+    public class Aktivudlevering
     {
-        public int AktivID { get; set; }
-        public int PersonID { get; set; }
-        public DateTime AktivUddelt { get; set; }
-        public DateTime AktivIndsamlet { get; set; }
+        public int? AktivID { get; set; }
+        public int? PersonID { get; set; }
+        public DateTime? AktivUddelt { get; set; }
+        public DateTime? AktivIndsamlet { get; set; }
         public int UdleveringsID { get; set; }
 
-        public Aktivudleveringer()
+        public Aktivudlevering()
         {
         }
 
-        public Aktivudleveringer(int aktivId, int personId, DateTime aktivUddelt, DateTime aktivIndsamlet, int udleveringsId)
+        public Aktivudlevering(int aktivId, int personId, DateTime? aktivUddelt, DateTime? aktivIndsamlet, int udleveringsId)
         {
             AktivID = aktivId;
             PersonID = personId;

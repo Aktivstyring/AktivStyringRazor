@@ -1,0 +1,46 @@
+﻿@page "{id}"
+@model AktivStyringRazor.Pages.Persons.ProfilModel
+@{
+    ViewData["Title"] = "Profil";
+}
+
+<h2>Profil</h2>
+<div><p><b>Navn:</b> @Model.profilData.Person.Navn;</p></div>
+<div><p><b>Email:</b> @Model.profilData.Person.Email;</p></div>
+<div><p><b>TelefonNr:</b> @Model.profilData.Person.Telefon.ToString();</p></div>
+<div><p><b>MedlemsNr:</b> @Model.profilData.Person.MedlemsNr;</p></div>
+<div><p><b>PersonId:</b> @Model.profilData.Person.PersonId;</p></div>
+
+
+<h2>Dine Udleveringer</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Aktivnummer
+            </th>
+            <th>
+                Dato Udleveret
+            </th>
+            <th>
+                Dato Indsamlet
+            </th>
+            <th>
+                UdleveringsID
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.profilData.AktivUdleveringer.Count() != 0)
+        {
+            @foreach (var item in Model.profilData.AktivUdleveringer)
+            {
+                <tr>
+                    <td>@item.AktivID</td>
+                    <td>@item.AktivIndsamlet</td>
+                    <td>@item.AktivUddelt</td>
+                    <td>@item.UdleveringsID</td>
+                </tr>
+            }
+        }
+</table>
