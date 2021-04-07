@@ -1,0 +1,101 @@
+﻿@page
+@model AktivStyringRazor.Pages.Aktiver.AktiverModel
+@{
+    ViewData["Title"] = "Aktiver";
+}
+
+
+
+<p>
+    <a asp-page="Aktiver/Create">Create New Aktiver</a>
+</p>
+
+<form>
+    <p>
+        Search: <input type="text"/>
+        <input type="submit" value="Filter"/>
+    </p>
+</form>
+
+<h4 style="color: brown"> List of Aktiver</h4>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            AktivID
+        </th>
+        <th>
+            AktivTypeID
+        </th>
+        <th>
+            Maerke
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            ModelUddyb
+        </th>
+        <th>
+            SerieNr
+        </th>
+        <th>
+            KaldeNavn
+        </th>
+        <th>
+            AktivstatusID
+        </th>
+        <th>
+            Detaljer
+        </th>
+        <th>
+            HarStregkode
+        </th>
+        <th>
+            FraKommando
+        </th>
+        <th>
+            Privat
+        </th>
+        <th>
+            Købt
+        </th>
+        <th>
+            Udskrevet
+        </th>
+        <th>
+            Oprettet
+        </th>
+        <th>
+            Opdateret
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @if (Model.Aktiver.Count() != 0)
+        {
+            @foreach (var item in Model.Aktiver)
+            {
+        <tr>
+            <td>@item.AktivID</td>
+            <td>@item.AktivTypeID</td>
+            <td>@item.Maerke</td>
+            <td>@item.Model</td>
+            <td>@item.ModelUddyb</td>
+            <td>@item.SerieNr</td>
+            <td>@item.Kaldenavn</td>
+            <td>@item.AktivstatusID</td>
+            <td>@item.Detaljer</td>
+            <td>@item.HarStregkode</td>
+            <td>@item.FraKommando</td>
+            <td>@item.Privat</td>
+            <td>@item.Købt</td>
+            <td>@item.Udskrevet</td>
+            <td>@item.Oprettet</td>
+            <td>@item.Opdateret</td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>
