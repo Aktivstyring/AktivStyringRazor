@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AktivStyringRazor.Services.AktivService
+namespace AktivStyringRazor.Services
 {
     public class AktivService: Connection ,IAktivService
     {
