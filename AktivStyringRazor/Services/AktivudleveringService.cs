@@ -46,7 +46,7 @@ namespace AktivStyringRazor.Services
                 }
 
             }
-                return aktivudleveringer;
+            return aktivudleveringer;
         }
     }
 }

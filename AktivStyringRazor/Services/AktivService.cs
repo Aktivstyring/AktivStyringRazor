@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using AktivStyringRazor.Services.handlers;
 
 namespace AktivStyringRazor.Services
 {
@@ -280,37 +281,34 @@ namespace AktivStyringRazor.Services
                     if (reader.IsDBNull(8)) { detaljer = "null"; }
                     else { detaljer = reader.GetString(8); }
 
-                    int? harStregKode;
-                    if (reader.IsDBNull(9)) { harStregKode = null; }
-                    else { harStregKode = reader.GetInt32(9); }
+                    bool harStregKode;
+                    harStregKode = reader.GetBoolean(9);
 
-                    int? fraKommando;
-                    if (reader.IsDBNull(10)) { fraKommando = null; }
-                    else { fraKommando = reader.GetInt32(10); }
+                    bool fraKommando;
+                    fraKommando = reader.GetBoolean(10); 
 
-                    int? privat;
-                    if (reader.IsDBNull(11)) { privat = null; }
-                    else { privat = reader.GetInt32(11); }
+                    bool privat;
+                    privat = reader.GetBoolean(11);
 
-                    DateTime købt;
+                    DateTime? købt = nullableGet.getNullableDateTime(12, reader);
                     //if (reader.IsDBNull(12)) { købt = null; }
-                    //else 
-                    { købt = reader.GetDateTime(12); }
+                    //else
 
-                    DateTime udskrevet;
+                    DateTime? udskrevet = nullableGet.getNullableDateTime(13, reader);
                     //if (reader.IsDBNull(13)) { købt = null; }
                     //else 
-                    { udskrevet = reader.GetDateTime(13); }
+                    //udskrevet = reader.GetDateTime(13);
 
-                    DateTime oprettet;
+                    DateTime? oprettet = nullableGet.getNullableDateTime(14, reader);
                     //if (reader.IsDBNull(14)) { købt = null; }
                     //else 
-                    { oprettet = reader.GetDateTime(14); }
+                    //oprettet = reader.GetDateTime(14);
 
-                    DateTime opdateret;
+                    DateTime? opdateret = nullableGet.getNullableDateTime(15, reader);
                     //if (reader.IsDBNull(15)) { købt = null; }
                     //else 
-                    { opdateret = reader.GetDateTime(15); }
+                    //opdateret = reader.GetDateTime(15);
+                   
 
                     Aktiv aktiver = new Aktiv(aktiv, aktivTypeID, maerke, model, modelUddyb, serieNr, kaldenavn, aktivstatusID, detaljer, harStregKode, fraKommando, privat, købt, udskrevet, oprettet, opdateret);
                     return aktiver;
@@ -362,37 +360,33 @@ namespace AktivStyringRazor.Services
                     if (reader.IsDBNull(8)) { detaljer = "null"; }
                     else { detaljer = reader.GetString(8); }
 
-                    int? harStregKode;
-                    if (reader.IsDBNull(9)) { harStregKode = null; }
-                    else { harStregKode = reader.GetInt32(9); }
+                    bool harStregKode;
+                    harStregKode = reader.GetBoolean(9);
 
-                    int? fraKommando;
-                    if (reader.IsDBNull(10)) { fraKommando = null; }
-                    else { fraKommando = reader.GetInt32(10); }
+                    bool fraKommando;
+                    fraKommando = reader.GetBoolean(10);
 
-                    int? privat;
-                    if (reader.IsDBNull(11)) { privat = null; }
-                    else { privat = reader.GetInt32(11); }
+                    bool privat;
+                    privat = reader.GetBoolean(11);
 
-                    DateTime købt;
+                    DateTime? købt=nullableGet.getNullableDateTime(12, reader);
                     //if (reader.IsDBNull(12)) { købt = null; }
-                    //else 
-                    { købt = reader.GetDateTime(12); }
+                    //else
 
-                    DateTime udskrevet;
+                    DateTime? udskrevet = nullableGet.getNullableDateTime(13, reader);
                     //if (reader.IsDBNull(13)) { købt = null; }
                     //else 
-                    { udskrevet = reader.GetDateTime(13); }
+                    //udskrevet = reader.GetDateTime(13);
 
-                    DateTime oprettet;
+                    DateTime? oprettet = nullableGet.getNullableDateTime(14, reader);
                     //if (reader.IsDBNull(14)) { købt = null; }
                     //else 
-                    { oprettet = reader.GetDateTime(14); }
+                    //oprettet = reader.GetDateTime(14);
 
-                    DateTime opdateret;
+                    DateTime? opdateret = nullableGet.getNullableDateTime(15, reader);
                     //if (reader.IsDBNull(15)) { købt = null; }
                     //else 
-                    { opdateret = reader.GetDateTime(15); }
+                    //opdateret = reader.GetDateTime(15);
 
                     Aktiv aktiverlist = new Aktiv(aktiv, aktivTypeID, maerke, model, modelUddyb, serieNr, kaldenavn, aktivstatusID, detaljer, harStregKode, fraKommando, privat, købt, udskrevet, oprettet, opdateret);
                     aktiver.Add(aktiverlist);
