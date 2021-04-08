@@ -17,21 +17,21 @@ namespace AktivStyringRazor.Services.handlers
         public static int? getNullableInt(int readerNr, SqlDataReader reader)
         {
             int? nullableInt=null;
-            if (reader.IsDBNull(readerNr))
+            if (!reader.IsDBNull(readerNr))
             { nullableInt = reader.GetInt32(readerNr); }
             return nullableInt;
         }
         public static string getNullableString(int readerNr, SqlDataReader reader)
         {
             string nullablestring = null;
-            if (reader.IsDBNull(readerNr))
+            if (!reader.IsDBNull(readerNr))
             { nullablestring = reader.GetString(readerNr); }
             return nullablestring;
         }
         public static DateTime? getNullableDateTime(int readerNr, SqlDataReader reader)
         {
             DateTime? nullabletime = null;
-            if (reader.IsDBNull(readerNr))
+            if (!reader.IsDBNull(readerNr))
             { nullabletime = reader.GetDateTime(readerNr); }
             return nullabletime;
 
