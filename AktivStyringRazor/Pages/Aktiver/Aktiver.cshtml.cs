@@ -10,7 +10,6 @@ namespace AktivStyringRazor.Pages.Aktiver
 {
     public class AktiverModel : PageModel
     {
-
         public List<Models.Aktiv> Aktiver { get; set; }
         private IAktivService aktivService;
 
@@ -18,8 +17,7 @@ namespace AktivStyringRazor.Pages.Aktiver
         {
             this.aktivService = aktService;
         }
-
-
+        
         public async Task OnGetAsync()
         {
             Aktiver = await aktivService.GetAktiverAsync();
