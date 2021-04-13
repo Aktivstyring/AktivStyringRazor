@@ -14,6 +14,7 @@ namespace AktivStyringRazor.Models
         public string Telefon { get; set; }
         public string Adresse { get; set; }
         public string MedlemsNr { get; set; }
+        //public string note {get; set;}
 
         public Personer()
         {

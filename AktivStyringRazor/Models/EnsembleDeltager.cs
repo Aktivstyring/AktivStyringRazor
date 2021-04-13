@@ -7,12 +7,12 @@ namespace AktivStyringRazor.Models
 {
     public class EnsembleDeltager
     {
-        public int EnsDeltager;
+        public int EnsDeltagerID;
         public int PersonID;
         public int EnsembleID;
-        public int RolleID;
-        public DateTime Tilmeldt;
-        public DateTime Udmeldt;
+        public int? RolleID;
+        public DateTime? Tilmeldt;
+        public DateTime? Udmeldt;
 
 
         public EnsembleDeltager()
@@ -20,11 +20,14 @@ namespace AktivStyringRazor.Models
 
         }
 
-        public EnsembleDeltager(int personID, int ensembleID, int rolleID)
+        public EnsembleDeltager(int ensDeltagerID, int personID, int ensembleID, int? rolleID, DateTime? tilmeldt, DateTime? udmeldt)
         {
+            EnsDeltagerID = ensDeltagerID;
             PersonID = personID;
             EnsembleID = ensembleID;
             RolleID = rolleID;
+            Tilmeldt = tilmeldt;
+            Udmeldt = udmeldt;
         }
     }
 }

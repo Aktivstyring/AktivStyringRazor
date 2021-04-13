@@ -10,8 +10,8 @@ namespace AktivStyringRazor.Services.Interfaces
     {
         //Task<List<EnsembleDeltager>> GetEnsembleDeltagerByNavnAsync();
         Task<List<EnsembleDeltager>> GetEnsembleDeltagerAsync();
-        Task<bool> AddEnsembleDeltagerAsync(Personer personer);
-        Task<EnsembleDeltager> GetEnsembleDeltagerByIdAsync(int EnsDeltagerID);
-        Task<EnsembleDeltager> DeleteEnsembleDeltagerAsync(int EnsDeltagerID);
+        Task<bool> AddEnsembleDeltagerAsync(EnsembleDeltager ensembleDeltager);
+        Task<EnsembleDeltager> GetEnsembleDeltagerByIdAsync(int ensDeltagerID);
+        Task<EnsembleDeltager> DeleteEnsembleDeltagerAsync(int ensDeltagerID);
     }
 }

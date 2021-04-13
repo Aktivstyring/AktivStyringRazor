@@ -96,7 +96,7 @@ namespace AktivStyringRazor.Services
                     string rolle = nullableGet.getNullableString(1, reader); 
                            
         
-                    Roller rolleList = new Roller();
+                    Roller rolleList = new Roller(rolleId, rolle);
                     roller.Add(rolleList);
                 }
             }
