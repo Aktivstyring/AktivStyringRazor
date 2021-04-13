@@ -10,6 +10,7 @@ namespace AktivStyringRazor.Services.Interfaces
     {
         Task<List<Ensemble>> GetEnsembleAsync();
         Task<bool> AddEnsembleAsync(Ensemble ensemble);
-        Task<Ensemble> GetEnsembleByID(int ensembleID);
+        Task<Ensemble> GetEnsembleByIDAsync(int ensembleID);
+        Task<Ensemble> DeleteEnsembleAsync(int ensembleID);
     }
 }

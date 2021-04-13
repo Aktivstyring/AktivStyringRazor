@@ -9,7 +9,7 @@ namespace AktivStyringRazor.Models
     {
         public int EnsembleID;
         public string Navn;
-        public string Noter;
+        public string? Noter;
 
         public Ensemble()
         {
@@ -17,7 +17,7 @@ namespace AktivStyringRazor.Models
         }
 
 
-        public Ensemble(int ensembleID, string navn, string noter)
+        public Ensemble(int ensembleID, string navn, string? noter)
         {
             EnsembleID = ensembleID;
             Navn = navn;
