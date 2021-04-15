@@ -1,0 +1,43 @@
+﻿@page
+@model AktivStyringRazor.Pages.Roller.RollerModel
+@{
+    ViewData["Title"] = "Roller";
+}
+<p>
+    <a asp-page="Roller/Create">Create new Rolle</a>
+</p>
+
+
+<form>
+    <p>
+        Search: <input type="text" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 style="color: darkblue">List af Ensemble Roller</h4>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            RolleID
+        </th>
+        <th>
+            Rolle
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Roller.Count() != 0)
+    {
+        @foreach (var item in Model.Roller)
+        {
+            <tr>
+                <td>@item.RolleID</td>
+                <td>@item.Rolle</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
