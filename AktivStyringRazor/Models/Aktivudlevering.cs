@@ -7,28 +7,30 @@ namespace AktivStyringRazor.Models
 {
     public class Aktivudlevering
     {
-        public int? AktivID { get; set; }
-        public int? PersonID { get; set; }
+        public int UdleveringsID { get; set; }
+        public string? AktivType { get; set; }
+        public string? Maerke { get; set; }
+        public string? SerieNr { get; set; }
         public DateTime? AktivUddelt { get; set; }
         public DateTime? AktivIndsamlet { get; set; }
-        public int UdleveringsID { get; set; }
 
         public Aktivudlevering()
         {
         }
 
-        public Aktivudlevering(int aktivId, int personId, DateTime? aktivUddelt, DateTime? aktivIndsamlet, int udleveringsId)
+        public Aktivudlevering(int udleveringsId, string? aktivType, string? maerke, string serieNr, DateTime? aktivUddelt, DateTime? aktivIndsamlet)
         {
-            AktivID = aktivId;
-            PersonID = personId;
+            UdleveringsID = udleveringsId;
+            AktivType = aktivType;
+            Maerke = maerke;
+            SerieNr = serieNr;
             AktivUddelt = aktivUddelt;
             AktivIndsamlet = aktivIndsamlet;
-            UdleveringsID = udleveringsId;
         }
 
         public override string ToString()
         {
-            return $"{nameof(AktivID)}: {AktivID}, {nameof(PersonID)}: {PersonID}, {nameof(AktivUddelt)}: {AktivUddelt}, {nameof(AktivIndsamlet)}: {AktivIndsamlet}, {nameof(UdleveringsID)}: {UdleveringsID}";
+            return $"{nameof(UdleveringsID)}: {UdleveringsID}, {nameof(AktivType)}: {AktivType}, {nameof(Maerke)}: {Maerke}, {nameof(SerieNr)}: {SerieNr}, {nameof(AktivUddelt)}: {AktivUddelt}, {nameof(AktivIndsamlet)}: {AktivIndsamlet}";
         }
     }
 }

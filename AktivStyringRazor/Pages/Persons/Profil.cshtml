@@ -5,42 +5,66 @@
 }
 
 <h2>Profil</h2>
-<div><p><b>Navn:</b> @Model.Person.Navn;</p></div>
-<div><p><b>Email:</b> @Model.Person.Email;</p></div>
-<div><p><b>TelefonNr:</b> @Model.Person.Telefon.ToString();</p></div>
-<div><p><b>MedlemsNr:</b> @Model.Person.MedlemsNr;</p></div>
-<div><p><b>PersonId:</b> @Model.Person.PersonId;</p></div>
+<div><p><b>Navn:</b> @Model.ProfilPerson.Navn;</p></div>
+<div><p><b>Email:</b> @Model.ProfilPerson.Email;</p></div>
+<div><p><b>TelefonNr:</b> @Model.ProfilPerson.Telefon.ToString();</p></div>
+<div><p><b>MedlemsNr:</b> @Model.ProfilPerson.MedlemsNr;</p></div>
+<div><p><b>PersonId:</b> @Model.ProfilPerson.PersonId;</p></div>
 
 
-<h2>Dine Udleveringer</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Aktivnummer
-            </th>
-            <th>
-                Dato Udleveret
-            </th>
-            <th>
-                Dato Indsamlet
-            </th>
-            <th>
-                UdleveringsID
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model.AktivUdleveringer.Count() != 0)
-        {
-            @foreach (var item in Model.AktivUdleveringer)
+<form method="post">
+    <div class="form-group">
+        <label>Vælg et Aktiv</label>
+        <select asp-for="@Model.AktivId" asp-items="@Model.Muligheder" class="form-control">
+        </select>
+        <input asp-for="@Model.ProfilPerson.PersonId" hidden="hidden">
+        <input asp-for="@Model.ProfilPerson" hidden="hidden">
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Udlever valgte aktiv"/>
+    </div>
+</form>
+
+    <h2>Dine Udleveringer</h2>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Aktiv ID
+                </th>
+
+                <th>
+                    Type
+                </th>
+                <th>
+                    Mærke
+                </th>
+                <th>
+                    Serienummer
+                </th>
+                <th>
+                    Dato Udleveret
+                </th>
+                <th>
+                    Dato Indsamlet
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.AktivUdleveringer.Count() != 0)
             {
-                <tr>
-                    <td>@item.AktivID</td>
-                    <td>@item.AktivIndsamlet</td>
-                    <td>@item.AktivUddelt</td>
-                    <td>@item.UdleveringsID</td>
-                </tr>
+                @foreach (var item in Model.AktivUdleveringer)
+                {
+            <tr>
+                <td>@item.UdleveringsID</td>
+                <td>@item.AktivType</td>
+                <td>@item.Maerke</td>
+                <td>@item.SerieNr</td>
+                <td>@item.AktivUddelt</td>
+                <td>@item.AktivIndsamlet</td>
+            </tr>
+                }
             }
-        }
-</table>
+    </table>
