@@ -1,0 +1,59 @@
+﻿@page
+@model AktivStyringRazor.Pages.EnsembleDeltager.EnsembleDeltagerModel
+@{
+    ViewData["Title"] = "EnsembleDeltager";
+}
+<p>
+    <a asp-page="EnsembleDeltager/Create">Create new Ensembledeltager</a>
+</p>
+
+
+<form>
+    <p>
+        Search: <input type="text"/>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 style="color: darkblue">Liste af EnsembleDeltagere</h4>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            EnsembledeltagerID
+        </th>
+        <th>
+            PersonID
+        </th>
+        <th>
+            EnsembleID
+        </th>
+        <th>
+            RolleID
+        </th>
+        <th>
+            Tilmeldt
+        </th>
+        <th>
+            Udmeldt
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.EnsDeltager.Count() != 0)
+    {
+        @foreach (var item in Model.EnsDeltager)
+        {
+            <tr>
+                <td>@item.EnsDeltagerID</td>
+                <td>@item.PersonID</td>
+                <td>@item.EnsembleID</td>
+                <td>@item.RolleID</td>
+                <td>@item.Tilmeldt</td>
+                <td>@item.Udmeldt</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

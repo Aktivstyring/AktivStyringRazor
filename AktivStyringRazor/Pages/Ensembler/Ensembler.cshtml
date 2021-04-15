@@ -1,0 +1,47 @@
+﻿@page
+@model AktivStyringRazor.Pages.Ensembler.EnsemblerModel
+@{
+    ViewData["Title"] = "Ensembler";
+}
+<p>
+    <a asp-page="Ensembler/Create">Create new Ensemble</a>
+</p>
+
+
+<form>
+    <p>
+        Search: <input type="text"/>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 style="color: cadetblue">List of Ensembler</h4>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            EnsembleID
+        </th>
+        <th>
+            Navn
+        </th>
+        <th>
+            Noter
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @if(Model.Ensembler.Count() !=0)
+            {
+                @foreach (var item in Model.Ensembler)
+                {
+                    <tr>
+                        <td>@item.EnsembleID</td>
+                        <td>@item.Navn</td>
+                        <td>@item.Noter</td>
+                    </tr>
+                }
+            }
+    </tbody>
+</table>
