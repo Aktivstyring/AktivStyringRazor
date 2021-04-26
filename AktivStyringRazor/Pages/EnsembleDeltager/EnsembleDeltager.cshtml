@@ -9,49 +9,49 @@
 
 
 <form>
-    <p>
+    <p class="SeaBar">
         Search: <input type="text"/>
         <input type="submit" value="Filter" />
     </p>
 </form>
 
-<h4 style="color: darkblue">Liste af EnsembleDeltagere</h4>
+<h4 class="LisTNvn" style="color: darkblue">Liste af EnsembleDeltagere</h4>
 
 <table>
-    <thead>
-    <tr>
-        <th>
+    <thead class="LisTHeader">
+    <tr class="THeaderTRLis">
+        <th class="THKolLisNvn">
             EnsembledeltagerID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             PersonID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             EnsembleID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             RolleID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             Tilmeldt
         </th>
-        <th>
+        <th class="THKolLisNvn">
             Udmeldt
         </th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="LisTBodyRow">
     @if (Model.EnsDeltager.Count() != 0)
     {
         @foreach (var item in Model.EnsDeltager)
         {
-            <tr>
-                <td>@item.EnsDeltagerID</td>
-                <td>@item.PersonID</td>
-                <td>@item.EnsembleID</td>
-                <td>@item.RolleID</td>
-                <td>@item.Tilmeldt</td>
-                <td>@item.Udmeldt</td>
+            <tr class="TBodyTRowLisItem">
+                <td class="TBKolLisItem">@item.EnsDeltagerID</td>
+                <td class="TBKolLisItem">@item.PersonID</td>
+                <td class="TBKolLisItem">@item.EnsembleID</td>
+                <td class="TBKolLisItem">@item.RolleID</td>
+                <td class="TBKolLisItem">@item.Tilmeldt</td>
+                <td class="TBKolLisItem">@item.Udmeldt</td>
             </tr>
         }
     }
