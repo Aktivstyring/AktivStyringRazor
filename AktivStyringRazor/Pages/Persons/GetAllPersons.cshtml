@@ -44,14 +44,16 @@
             @foreach (var item in Model.Persons)
             {
         <tr>
-            <td><a asp-page="/Persons/Profil" asp-route-id="@item.PersonId">@item.Navn</a></td>
+            <td><a class="internpagelink" asp-page="/Persons/Profil" asp-route-id="@item.PersonId">@item.Navn</a></td>
             <td>@item.Telefon</td>
             <td>@item.Email</td>
             <td>@item.Adresse</td>
-            <td>@item.MedlemsNr</td><td>
+            <td>@item.MedlemsNr</td>
+            <td>
                 <p>
                     <a asp-page="/Persons/Delete" asp-route-id="@item.PersonId">Delete</a>
                 </p>
+                    <a asp-page="/Persons/Edit" asp-route-id="@item.PersonId">Edit</a>
             </td>
         </tr>
             }
