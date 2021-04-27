@@ -11,58 +11,58 @@
 </p>
 
 <form>
-    <p>
+    <p class="SeaBar">
         Search: <input type="text" />
         <input type="submit" value="Filter" />
     </p>
 </form>
 
-<h4 style="color:black"> List of Lageroptællinger</h4>
+<h4 class="LisTNvn" style="color:black"> List of Lageroptællinger</h4>
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>
+    <thead class="LisTHeader">
+        <tr class="THeaderTRLis">
+            <th class="THKolLisNvn">
                 AktivID
             </th>
-            <th>
+            <th class="THKolLisNvn">
                 Placering
             </th>
-            <th>
+            <th class="THKolLisNvn">
                 PlaceringDato
             </th>
-            <th>
+            <th class="THKolLisNvn">
                 PlaceringNote
             </th>
-            <th>
+            <th class="THKolLisNvn">
                 LinkID
             </th>
 
         </tr>
     </thead>
-    <tbody>
+    <tbody class="LisTBodyRow">
         @if (Model.Lageroptællinger.Count() != 0)
         {
             @foreach (var item in Model.Lageroptællinger)
             {
-                <tr>
-                    <td>
+                <tr class="TBodyTRowLisItem">
+                    <td class="TBKolLisItem">
                         @item.AktivID
                     </td>
-                    <td>
+                    <td class="TBKolLisItem">
                         @item.Placering
                     </td>
-                    <td>
+                    <td class="TBKolLisItem">
                         @item.PlaceringDato
                     </td>
-                    <td>
+                    <td class="TBKolLisItem">
                         @item.PlaceringNote
                     </td>
-                    <td>
+                    <td class="TBKolLisItem">
                         @item.LinkID
                     </td>
-                    <td>
-                        <p>
+                    <td class="TBKolLisItem">
+                        <p class="TBKolLisDelItem">
                             <a asp-page="/Lageroptælling/Delete" asp-route-id="@item.LinkID">Delete</a>
                         </p>
                     </td>

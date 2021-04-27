@@ -35,8 +35,9 @@ namespace AktivStyringRazor.Pages
 
         TableBodyTableRowListItem
         TBodyTRowLisItem
-    
-
+        
+        TableBodyTableRowListDeleteItem
+        TBKolLisDelItem
 
 
 

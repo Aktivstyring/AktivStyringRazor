@@ -9,46 +9,46 @@
 </p>
 
 <form>
-    <p>
+    <p class="SeaBar">
         Search: <input type="text" />
         <input type="submit" value="Filter"/>
     </p>
 </form>
 
-<h4 style="color:black"> List of Placeringer</h4>
+<h4 class="LisTNvn" style="color:black"> List of Placeringer</h4>
 
 <table class="table">
-    <thead>
-    <tr>
-        <th>
+    <thead class="LisTHeader">
+    <tr class="THeaderTRLis">
+        <th class="THKolLisNvn">
             PlaceringID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             Placering
         </th>
-        <th>
+        <th class="THKolLisNvn">
             PlaceringSort
         </th>
 
     </tr>
     </thead>
-    <tbody>
+    <tbody class="LisTBodyRow">
     @if (Model.Placeringer.Count() != 0)
     {
         @foreach (var item in Model.Placeringer)
         {
-            <tr>
-                <td>
+            <tr class="TBodyTRowLisItem">
+                <td class="TBKolLisItem">
                     @item.PlaceringID
                 </td>
-                <td>
+                <td class="TBKolLisItem">
                     @item.Placering
                 </td>
-                <td>
+                <td class="TBKolLisItem">
                     @item.PlaceringSort
                 </td>
-                <td>
-                    <p>
+                <td class="TBKolLisItem">
+                    <p class="TBKolLisDelItem">
                         <a asp-page="/Placeringer/Delete" asp-route-id="@item.PlaceringID">Delete</a>
                     </p>
                 </td>
