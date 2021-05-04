@@ -1,0 +1,105 @@
+﻿
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+/*Navbar*/
+
+.left-navbar {
+    /* left anchored vertical collapsable navbar */
+    position: absolute;
+    background-color: #404040;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 260px;
+    left: 0;
+    overflow: hidden;
+    -webkit-transition: width .2s linear;
+    transition: width .2s linear;
+    -webkit-transform: translateZ(0) scale(1,1);
+    box-shadow: 1px 0 15px rgba(0, 0, 0, 0.07);
+    opacity: 1;
+}
+
+.lnul {
+    margin: 7px 0;
+}
+
+.lnli {
+    position: relative;
+    display: block;
+    width: 250px;
+    text-transform: uppercase;
+    margin: 7px 0;
+}
+
+
+.left-navbar .nav-icon {
+    position: relative;
+    display: table-cell;
+    color: #b8ba4e;
+    width: 55px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+.left-navbar .nav-text {
+    color: #b8ba4e;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 190px;
+    text-transform: uppercase;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+nav ul, nav li {
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.darkerli {
+    background-color: #636363;
+    text-transform: uppercase;
+}
+
+
+.settings {
+    height: 73px;
+    float: left;
+    background: url( https://s3.postimg.org/bqfooag4z/startific.jpg);
+    background-repeat: no-repeat;
+    width: 250px;
+    margin: 0px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Strait', sans-serif;
+}
+
+.scrollbar {
+    height: 90%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+
+/*Font awesome*/
+
+
+.fa-lg {
+    font-size: 1em;
+    color: #b8ba4e
+}
+
+.fa {
+    position: relative;
+    display: table-cell;
+    width: 55px;
+    height: 36px;
+    text-align: center;
+    top: 12px;
+    font-size: 20px;
+}

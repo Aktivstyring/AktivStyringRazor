@@ -1,16 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://kit.fontawesome.com/3c7f3f4c21.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AktivStyringRazor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/navbar.css"/>
 </head>
-<body>
+<body style="background-color: slategray; position:relative">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color:white">
+            <div class="container"  style="background-color:white">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">AktivStyringRazor</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -18,47 +20,15 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Aktiver/Aktiver">Aktiver</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Persons/GetAllPersons">Members</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Ensembler/Ensembler">Ensembler</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-page="/EnsembleDeltager/EnsembleDeltager">EnsembleDeltager</a>
-                        </li>
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Roller/Roller">Roller</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AktivTyper/AktivTyper">Aktivtyper</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Placeringer/Placeringer">Placeringer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div>
+    <div style="background-color: slategray">
         @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - AktivStyringRazor - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

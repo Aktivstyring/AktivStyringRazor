@@ -139,6 +139,23 @@ namespace AktivStyringRazor.Services
             }
         }
 
+        public async Task<bool> UpdatePersonAsync()
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(insertSql, connection);
+                await command.Connection.OpenAsync();
+                int noOfRows = await command.ExecuteNonQueryAsync();
+                if (noOfRows == 1)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+        }
+
+
         public Task<List<Personer>> GetPersonerByNavnAsync()
         {
             throw new NotImplementedException();

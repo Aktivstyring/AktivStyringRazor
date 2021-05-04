@@ -2,15 +2,51 @@
 @{
     Layout = "_Layout";
 }
-<nav class="main-menu">
-    <ul>
-        <li>
+<div class="row" style="position: relative; min-height:700px">
+    <nav class="left-navbar">
+        <div class="settings"></div>
+        <div class="scrollbar">
+            <ul class="lnul">
+                <li class="lnli">
 
-        </li>
-    </ul>
-</nav>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
+                    <a asp-area="" asp-page="/Index"><i class="fa fa-home fa-lg"></i><span class="nav-text">Home</span></a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/Aktiver/Aktiver"><i class="fa fa-guitar fa-lg"></i><span class="nav-text">Aktiver</span></a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/Persons/GetAllPersons">
+                        <i class="fa fa-user fa-lg"></i><span class="nav-text">Medlemmer</span>
+                    </a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/Ensembler/Ensembler"><i class="fa fa-users fa-lg"></i><span class="nav-text">Ensembler</span></a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/EnsembleDeltager/EnsembleDeltager"><i class="fa fa-user-plus fa-lg"></i><span class="nav-text">Ensembledeltagere</span></a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/Roller/Roller"><i class="fa fa-theater-masks fa-lg"></i><span class="nav-text">Roller</span></a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/AktivTyper/AktivTyper"><i class="fa fa-drum fa-lg"></i><span class="nav-text">aktivtyper</span></a>
+                </li>
+                <li class="darkerli">
+                    <a asp-area="" asp-page="/Placeringer/Placeringer"><i class="fa fa-warehouse fa-lg"></i><span class="nav-text">placeringer</span></a>
+                </li>
+                    <a asp-area="" asp-page="/Privacy"><i class="fa fa-question-circle fa-lg"></i><span class="nav-text">privatliv</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="position:relative">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 </div>
+<footer class="footer footer text-muted" style="background-color:white">
+    <div class="container">
+        &copy; 2021 - AktivStyringRazor - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
+</footer>
