@@ -9,37 +9,37 @@
 
 
 <form>
-    <p>
+    <p class="SeaBar">
         Search: <input type="text"/>
         <input type="submit" value="Filter" />
     </p>
 </form>
 
-<h4 style="color: cadetblue">List of Ensembler</h4>
+<h4 class="LisTNvn" style="color: cadetblue">List of Ensembler</h4>
 
 <table>
-    <thead>
-    <tr>
-        <th>
+    <thead class="LisTHeader">
+    <tr class="THeaderTRLis">
+        <th class="THKolLisNvn">
             EnsembleID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             Navn
         </th>
-        <th>
+        <th class="THKolLisNvn">
             Noter
         </th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="LisTBodyRow">
     @if(Model.Ensembler.Count() !=0)
             {
                 @foreach (var item in Model.Ensembler)
                 {
-                    <tr>
-                        <td>@item.EnsembleID</td>
-                        <td>@item.Navn</td>
-                        <td>@item.Noter</td>
+                    <tr class="TBodyTRowLisItem">
+                        <td class="TBKolLisItem">@item.EnsembleID</td>
+                        <td class="TBKolLisItem">@item.Navn</td>
+                        <td class="TBKolLisItem">@item.Noter</td>
                     </tr>
                 }
             }

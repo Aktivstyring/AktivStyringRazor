@@ -9,33 +9,33 @@
 
 
 <form>
-    <p>
+    <p class="SeaBar">
         Search: <input type="text" />
         <input type="submit" value="Filter" />
     </p>
 </form>
 
-<h4 style="color: darkblue">List af Ensemble Roller</h4>
+<h4 class="LisTNvn" style="color: darkblue">List af Ensemble Roller</h4>
 
 <table>
-    <thead>
-    <tr>
-        <th>
+    <thead class="LisTHeader">
+    <tr class="THeaderTRLis">
+        <th class="THKolLisNvn">
             RolleID
         </th>
-        <th>
+        <th class="THKolLisNvn">
             Rolle
         </th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="LisTBodyRow">
     @if (Model.Roller.Count() != 0)
     {
         @foreach (var item in Model.Roller)
         {
-            <tr>
-                <td>@item.RolleID</td>
-                <td>@item.Rolle</td>
+            <tr class="TBodyTRowLisItem">
+                <td class="TBKolLisItem">@item.RolleID</td>
+                <td class="TBKolLisItem">@item.Rolle</td>
             </tr>
         }
     }
