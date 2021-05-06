@@ -13,14 +13,14 @@ namespace AktivStyringRazor.Models
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string Adresse { get; set; }
-        public string MedlemsNr { get; set; }
+        public int? MedlemsNr { get; set; }
         //public string note {get; set;}
 
         public Personer()
         {
         }
 
-        public Personer(int personId, string navn, string email, string telefon, string adresse, string medlemsNr)
+        public Personer(int personId, string navn, string email, string telefon, string adresse, int? medlemsNr)
         {
             PersonId = personId;
             Navn = navn;

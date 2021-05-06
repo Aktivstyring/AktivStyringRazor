@@ -17,6 +17,7 @@ namespace AktivStyringRazor.Services
         private string queryById = "select * from Personer where PersonId = @ID";
         private string insertSql = "insert into Personer(Navn, Telefon, Email, Adresse, MedlemsNr) values(@Navn, @Telefon, @Email, @Adresse, @MedlemsNr)";
         private string queryDelete = "delete from Personer where PersonId = @ID";
+        private string queryUpdate = "UPDATE Personer SET Navn = @Navn, Telefon = @Telefon, Email = @Email, Adresse = @Adresse MedlemsNr = @MedlemsNr WHERE PersonId = @ID";
 
         public PersonService(IConfiguration configuration) : base(configuration)
         {
@@ -88,9 +89,9 @@ namespace AktivStyringRazor.Services
                     if (reader.IsDBNull(4)) { adresse = "null"; }
                     else { adresse = reader.GetString(4); }
 
-                    string medlemsNr;
-                    if (reader.IsDBNull(5)) { medlemsNr = "null"; }
-                    else { medlemsNr = reader.GetString(5); }
+                    int? medlemsNr;
+                    if (reader.IsDBNull(5)) { medlemsNr = null; }
+                    else { medlemsNr = reader.GetInt32(5); }
                     Personer person = new Personer(personId, navn, email,telefonNr,adresse,medlemsNr);
                     personer.Add(person);
                 }
@@ -129,9 +130,9 @@ namespace AktivStyringRazor.Services
                     if (reader.IsDBNull(4)) { adresse = "null"; }
                     else { adresse = reader.GetString(4); }
 
-                    string medlemsNr;
-                    if (reader.IsDBNull(5)) { medlemsNr = "null"; }
-                    else { medlemsNr = reader.GetString(5); }
+                    int? medlemsNr;
+                    if (reader.IsDBNull(5)) { medlemsNr = null; }
+                    else { medlemsNr = reader.GetInt32(5); }
                     Personer person = new Personer(id, navn, email, telefonNr, adresse, medlemsNr);
                     return person;
                 }
@@ -139,13 +140,19 @@ namespace AktivStyringRazor.Services
             }
         }
 
-        public async Task<bool> UpdatePersonAsync()
+        public async Task<bool> UpdatePersonAsync(Personer person)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(insertSql, connection);
+                SqlCommand command = new SqlCommand(queryUpdate, connection);
                 await command.Connection.OpenAsync();
+                command.Parameters.AddWithValue("@ID", person.PersonId);
+                if (person.Navn == null) { command.Parameters.AddWithValue("@Navn", "null"); } else { command.Parameters.AddWithValue("@Navn", person.Navn); }
+                if (person.Telefon == null) { command.Parameters.AddWithValue("@Telefon", "null"); } else { command.Parameters.AddWithValue("@Telefon", person.Telefon); }
+                if (person.Email == null) { command.Parameters.AddWithValue("@Email", "null"); } else { command.Parameters.AddWithValue("@Email", person.Email); }
+                if (person.Adresse == null) { command.Parameters.AddWithValue("@Adresse", "null"); } else { command.Parameters.AddWithValue("@Adresse", person.Adresse); }
+                if (person.MedlemsNr == null){ command.Parameters.AddWithValue("@MedlemsNr", "null"); } else { command.Parameters.AddWithValue("@MedlemsNr", person.MedlemsNr); }
                 int noOfRows = await command.ExecuteNonQueryAsync();
                 if (noOfRows == 1)
                 {
