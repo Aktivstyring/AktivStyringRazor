@@ -1,4 +1,15 @@
 ﻿@page
 @model AktivStyringRazor.Pages.Persons.EditModel
 @{
+    ViewData["Title"] = "Edit";
+}
+    <form method="post">
+        <label asp-for="Person.PersonId"></label> <input type="text" hidden="hidden" asp-for="Person.PersonId" /><br>
+        <label asp-for="Person.Navn"></label> <input type="text" asp-for="Person.Navn" /><br>
+        <label asp-for="Person.Adresse"></label> <input type="text" asp-for="Person.Adresse" /><br>
+        <label asp-for="Person.Email"></label> <input type="text" asp-for="Person.Email" /><br>
+        <label asp-for="Person.Telefon"></label> <input asp-for="Person.Telefon" /><br>
+        <label asp-for="Person.MedlemsNr"></label> <input asp-for="Person.MedlemsNr" /><br>
+        <input type="submit" value="Edit" />
+    </form>
 }
