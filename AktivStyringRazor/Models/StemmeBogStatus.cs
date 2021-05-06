@@ -8,11 +8,11 @@ namespace AktivStyringRazor.Models
     public class StemmeBogStatus
     {
         public int StemmeBogStatusID { get; set; }
-        public string BogStatus { get; set; }
+        public string? BogStatus { get; set; }
 
         public StemmeBogStatus() { }
 
-        public StemmeBogStatus(int stemmeBogStatusID, string bogStatus)
+        public StemmeBogStatus(int stemmeBogStatusID, string? bogStatus)
         {
             StemmeBogStatusID = stemmeBogStatusID;
             BogStatus = bogStatus;

@@ -8,14 +8,14 @@ namespace AktivStyringRazor.Models
     public class Node
     {
         public int MusikID { get; set; }
-        public string Titel { get; set; }
-        public string Komponist { get; set; }
-        public string Forfatter { get; set; }
-        public string Forlag { get; set; }
+        public string? Titel { get; set; }
+        public string? Komponist { get; set; }
+        public string? Forfatter { get; set; }
+        public string? Forlag { get; set; }
 
         public Node() { }
 
-        public Node(int musikID, string titel, string komponist, string forfatter, string forlag)
+        public Node(int musikID, string? titel, string? komponist, string? forfatter, string? forlag)
         {
             MusikID = musikID;
             Titel = titel;

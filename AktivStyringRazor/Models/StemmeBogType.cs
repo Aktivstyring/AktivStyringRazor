@@ -8,7 +8,7 @@ namespace AktivStyringRazor.Models
     public class StemmeBogType
     {
         public int StemmeBogTypeID { get; set; }
-        public string BogType { get; set; }
+        public string? BogType { get; set; }
 
 
         public StemmeBogType()
@@ -16,7 +16,7 @@ namespace AktivStyringRazor.Models
         }
 
 
-        public StemmeBogType(int stemmeBogTypeID, string bogType)
+        public StemmeBogType(int stemmeBogTypeID, string? bogType)
         {
             StemmeBogTypeID = stemmeBogTypeID;
             BogType = bogType;

@@ -8,15 +8,15 @@ namespace AktivStyringRazor.Models
     public class StemmeBog
     {
         public int StemmeBogID { get; set; }
-        public int StemmeBogTypeID { get; set; }
-        public int BogStatus { get; set; }
-        public int UddeltTil { get; set; }
-        public int Instrument { get; set; }
-        public int StemmeType { get; set; }
+        public int? StemmeBogTypeID { get; set; }
+        public int? BogStatus { get; set; }
+        public int? UddeltTil { get; set; }
+        public int? Instrument { get; set; }
+        public int? StemmeType { get; set; }
 
         public StemmeBog() { }
 
-        public StemmeBog(int stemmeBogID, int stemmeBogTypeID, int bogStatus, int uddeltTil, int instrument, int stemmeType)
+        public StemmeBog(int stemmeBogID, int? stemmeBogTypeID, int? bogStatus, int? uddeltTil, int? instrument, int? stemmeType)
         {
             StemmeBogID = stemmeBogID;
             StemmeBogTypeID = stemmeBogTypeID;

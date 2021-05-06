@@ -33,22 +33,22 @@ namespace AktivStyringRazor.Services
                 if (node.Titel == null)
                 { command.Parameters.AddWithValue("@Titel", "null"); }
                 else
-                { command.Parameters.AddWithValue("@Titel", "null"); }
+                { command.Parameters.AddWithValue("@Titel", node.Titel); }
 
                 if (node.Komponist == null)
                 { command.Parameters.AddWithValue("@Komponist", "null"); }
                 else
-                { command.Parameters.AddWithValue("@Komponist", "null"); }
+                { command.Parameters.AddWithValue("@Komponist", node.Komponist); }
 
                 if (node.Forfatter == null)
                 { command.Parameters.AddWithValue("@Forfatter", "null"); }
                 else
-                { command.Parameters.AddWithValue("@Forfatter", "null"); }
+                { command.Parameters.AddWithValue("@Forfatter", node.Forfatter); }
 
                 if (node.Forlag == null)
                 { command.Parameters.AddWithValue("@Forlag", "null"); }
                 else
-                { command.Parameters.AddWithValue("@Forlag", "null"); }
+                { command.Parameters.AddWithValue("@Forlag", node.Forlag); }
 
                 await command.Connection.OpenAsync();
                 int noOfRows = await command.ExecuteNonQueryAsync();
@@ -75,13 +75,13 @@ namespace AktivStyringRazor.Services
                 {
                     int musikId = reader.GetInt32(0);
 
-                    string titel = nullableGet.getNullableString(1, reader);
+                    string? titel = nullableGet.getNullableString(1, reader);
 
-                    string komponist = nullableGet.getNullableString(2, reader);
+                    string? komponist = nullableGet.getNullableString(2, reader);
 
-                    string forfatter = nullableGet.getNullableString(3, reader);
+                    string? forfatter = nullableGet.getNullableString(3, reader);
 
-                    string forlag = nullableGet.getNullableString(4, reader);
+                    string? forlag = nullableGet.getNullableString(4, reader);
 
                     Node node = new Node(musikId, titel, komponist, forfatter, forlag);
                     return node;
@@ -120,19 +120,19 @@ namespace AktivStyringRazor.Services
                 {
                     int musikID = reader.GetInt32(0);
 
-                    string titel;
+                    string? titel;
                     if (reader.IsDBNull(1)) { titel = "null"; }
                     else { titel = reader.GetString(1); }
 
-                    string komponist;
+                    string? komponist;
                     if (reader.IsDBNull(2)) { komponist = "null"; }
                     else { komponist = reader.GetString(2); }
 
-                    string forfatter;
+                    string? forfatter;
                     if (reader.IsDBNull(3)) { forfatter = "null"; }
                     else { forfatter = reader.GetString(3); }
 
-                    string forlag;
+                    string? forlag;
                     if (reader.IsDBNull(4)) { forlag = "null"; }
                     else { forlag = reader.GetString(4); }
 
