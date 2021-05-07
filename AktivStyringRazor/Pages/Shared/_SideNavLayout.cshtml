@@ -3,12 +3,14 @@
     Layout = "_Layout";
 }
 <div class="row" style="position: relative; min-height:700px">
-    <nav class="left-navbar">
+    <nav class="left-navbar" id="lnavb1">
         <div class="settings"></div>
         <div class="scrollbar">
             <ul class="lnul">
                 <li class="lnli">
-
+                    <button onclick="hideshow">hide/show</button>
+                </li>
+                <li class="lnli">
                     <a asp-area="" asp-page="/Index"><i class="fa fa-home fa-lg"></i><span class="nav-text">Home</span></a>
                 </li>
                 <li class="darkerli">
@@ -34,6 +36,7 @@
                 <li class="darkerli">
                     <a asp-area="" asp-page="/Placeringer/Placeringer"><i class="fa fa-warehouse fa-lg"></i><span class="nav-text">placeringer</span></a>
                 </li>
+                <li class="lnli">
                     <a asp-area="" asp-page="/Privacy"><i class="fa fa-question-circle fa-lg"></i><span class="nav-text">privatliv</span></a>
                 </li>
             </ul>
@@ -50,3 +53,14 @@
         &copy; 2021 - AktivStyringRazor - <a asp-area="" asp-page="/Privacy">Privacy</a>
     </div>
 </footer>
+<script type="text/javascript">
+    function hideshow() {
+        var x = document.getElementById("lnavb1");
+        if (x.style.) {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+
+</script>
