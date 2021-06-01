@@ -30,6 +30,7 @@ namespace AktivStyringRazor
             services.AddTransient<IAktivTyperService, AktivTyperService>();
             services.AddTransient<IPlaceringerService, PlaceringService>();
             services.AddTransient<AktivudleveringService>();
+            services.AddTransient<LoginService>();
             services.AddTransient<IAktivService, AktivService>();
             services.AddTransient<IEnsemblerService, EnsemblerService>();
             services.AddTransient<IEnsembleDeltagerService, EnsembleDeltagerService>();
