@@ -25,7 +25,6 @@ namespace AktivStyringRazor.Models
             Instrument = instrument;
             StemmeType = stemmeType;
         }
-
         public override string ToString()
         {
             return $"{nameof(StemmeBogID)}: {StemmeBogID}, {nameof(StemmeBogTypeID)}: {StemmeBogTypeID}, {nameof(BogStatus)}: {BogStatus},{nameof(UddeltTil)}: {UddeltTil}, {nameof(Instrument)}: {Instrument}, {nameof(StemmeType)}: {StemmeType}";
