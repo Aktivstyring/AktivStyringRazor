@@ -15,12 +15,12 @@ namespace AktivStyringRazor.Services
 
         }
 
-        public async Task<bool> LogInAsync(string password, string email)
+        public async Task<bool> LogInAsync(string keyphrase, string email)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(logInSql, connection);
-                command.Parameters.AddWithValue("@Keyphrase",password);
+                command.Parameters.AddWithValue("@Keyphrase", keyphrase);
                 command.Parameters.AddWithValue("@Email", email);
                 await command.Connection.OpenAsync();
                 int noOfRows = await command.ExecuteNonQueryAsync();

@@ -1,13 +1,14 @@
 ﻿@page
 @model AktivStyringRazor.Pages.Login.LoginPageModel
-@{
-}
+    @{
+        ViewData["Title"] = "LoginPage";
+    }
 
 <div class="text-center">
     <form method="post">
-        <label asp-for="Email"></label> <input type="text" asp-for="Email" /><br>
-        <label asp-for="Password"></label> <input type="text" asp-for="Password" /><br>
+        <label asp-for="Email"></label> <input type="email" asp-for="Email" /><br>
+        <label asp-for="Keyphrase"></label> <input type="password" asp-for="Keyphrase" /><br>
         <input type="submit" value="Log ind" />
     </form>
-    <p></p>
 </div>
+<p>@Model.ErrorMessage</p>

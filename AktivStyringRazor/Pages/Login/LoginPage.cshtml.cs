@@ -11,9 +11,12 @@ namespace AktivStyringRazor.Pages.Login
     public class LoginPageModel : PageModel
     {
         private LoginService lService;
+        [BindProperty]
         public string ErrorMessage { get; set; }
+        [BindProperty]
         public string Email { get; set; }
-        public string Password { get; set; }
+        [BindProperty]
+        public string Keyphrase { get; set; }
 
         public LoginPageModel(LoginService service)
         {
@@ -25,11 +28,11 @@ namespace AktivStyringRazor.Pages.Login
 
         }
 
-        public async void onPostAsync()
+        public async Task OnPostAsync()
         {
-            if(await lService.LogInAsync(Password,Email))
+            if(await lService.LogInAsync(Keyphrase,Email))
             { RedirectToPage(); }
-            else { ErrorMessage = "Log-in fejlede"; }
+            else { ErrorMessage = "Forkert e-mail eller password"; }
         }
     }
 }

@@ -17,7 +17,8 @@ namespace AktivStyringRazor.Services
         private string queryById = "select * from Personer where PersonId = @ID";
         private string insertSql = "insert into Personer(Navn, Telefon, Email, Adresse, MedlemsNr) values(@Navn, @Telefon, @Email, @Adresse, @MedlemsNr)";
         private string queryDelete = "delete from Personer where PersonId = @ID";
-        private string queryUpdate = "UPDATE Personer SET Navn = @Navn, Telefon = @Telefon, Email = @Email, Adresse = @Adresse MedlemsNr = @MedlemsNr WHERE PersonId = @ID";
+        private string queryUpdate = 
+        "UPDATE Personer SET Navn = @Navn, Telefon = @Telefon, Email = @Email, Adresse = @Adresse MedlemsNr = @MedlemsNr WHERE PersonId = @ID";
 
         public PersonService(IConfiguration configuration) : base(configuration)
         {
