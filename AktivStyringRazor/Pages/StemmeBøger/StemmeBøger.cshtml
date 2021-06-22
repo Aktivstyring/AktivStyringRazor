@@ -1,0 +1,44 @@
+﻿@page
+@model AktivStyringRazor.Pages.StemmeBøger.StemmeBøgerModel
+@{
+    ViewData["Title"] = "Stemmebøger";
+}
+
+
+<form>
+    <p class="SeaBar">
+        Search: <input type="text" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 class="LisTNvn" style="color: darkblue">List af Ensemble Roller</h4>
+
+<table>
+    <thead class="LisTHeader">
+        <tr class="THeaderTRLis">
+            <th class="THKolLisNvn">
+                RolleID
+            </th>
+            <th class="THKolLisNvn">
+                Rolle
+            </th>
+        </tr>
+    </thead>
+    @*<tbody class="LisTBodyRow">
+        @if (Model.Roller.Count() != 0)
+        {
+            @foreach (var item in Model.Roller)
+            {
+                <tr class="TBodyTRowLisItem">
+                    <td class="TBKolLisItem">@item.RolleID</td>
+                    <td class="TBKolLisItem">@item.Rolle</td>
+                </tr>
+            }
+        }
+    </tbody>*@
+</table>
+
+<p>
+    <a asp-page="StemmeBøger/Create">Create new Stemmebog</a>
+</p>

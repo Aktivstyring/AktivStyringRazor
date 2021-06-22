@@ -17,6 +17,7 @@ namespace AktivStyringRazor.Services
         private string queryById = "select * from StemmeBøger where StemmeBogID = @ID";
         private string insertSql = "insert into StemmeBøger(StemmeBogType, BogStatus, UddeltTil, Instrument, StemmeType) values(@StemmeBogType, @BogStatus, @UddeltTil, @Instrument, @StemmeType)";
         private string queryDelete = "delete from StemmeBøger where StemmeBogID = @ID";
+        private string queryJoin = "select StemmeBøger.StemmeBogID, StemmeBogType.Bogtype, StemmeBogStatus.BogStatus, Personer.Navn, AktivType.AktivType, StemmeNummer.StemmeNummerTal";
 
         
         public StemmeBogService(IConfiguration configuration) : base(configuration)
