@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace AktivStyringRazor.Models
 {
-    public class StemmeBog
+    public class StemmeBogInJoLi
     {
         public int StemmeBogID { get; set; }
-        public int? StemmeBogTypeID { get; set; }
-        public int? BogStatus { get; set; }
-        public int? UddeltTil { get; set; }
-        public int? Instrument { get; set; }
-        public int? StemmeType { get; set; }
+        public string? StemmeBogTypeID { get; set; }
+        public string? BogStatus { get; set; }
+        public string? UddeltTil { get; set; }
+        public string? Instrument { get; set; }
+        public string? StemmeType { get; set; }
 
-        public StemmeBog() { }
+        public StemmeBogInJoLi() { }
 
-        public StemmeBog(int stemmeBogID, int? stemmeBogTypeID, int? bogStatus, int? uddeltTil, int? instrument, int? stemmeType)
+        public StemmeBogInJoLi(int stemmeBogID, string? stemmeBogTypeID, string? bogStatus, string? uddeltTil, string? instrument, string? stemmeType)
         {
             StemmeBogID = stemmeBogID;
             StemmeBogTypeID = stemmeBogTypeID;

@@ -17,8 +17,12 @@ namespace AktivStyringRazor.Services
         private string queryById = "select * from StemmeBøger where StemmeBogID = @ID";
         private string insertSql = "insert into StemmeBøger(StemmeBogType, BogStatus, UddeltTil, Instrument, StemmeType) values(@StemmeBogType, @BogStatus, @UddeltTil, @Instrument, @StemmeType)";
         private string queryDelete = "delete from StemmeBøger where StemmeBogID = @ID";
+        private string queryALLJoin = "select StemmeBøger.StemmeBogID, StemmeBogType.Bogtype, StemmmeBogStatus.BogStatus, Personer.Navn, AktivType.AktivType, StemmeNummer.StemmeNummerTal from (((((StemmeBøger INNER JOIN StemmeBogType ON StemmeBøger.StemmeBogType = StemmeBogType.StemmeBogTypeID) INNER JOIN StemmmeBogStatus ON StemmeBøger.BogStatus = StemmmeBogStatus.StemmmeBogStatusID) left JOIN Personer on StemmeBøger.UddeltTil = Personer.PersonID) inner join AktivType on StemmeBøger.Instrument = AktivType.AktivTypeID) inner join StemmeNummer on StemmeBøger.StemmeType = StemmeNummer.StemmeNummerID)";
+        private string queryUDDELTJoin = "select StemmeBøger.StemmeBogID, StemmeBogType.Bogtype, StemmmeBogStatus.BogStatus, Personer.Navn, AktivType.AktivType, StemmeNummer.StemmeNummerTal from (((((StemmeBøger INNER JOIN StemmeBogType ON StemmeBøger.StemmeBogType = StemmeBogType.StemmeBogTypeID) INNER JOIN StemmmeBogStatus ON StemmeBøger.BogStatus = StemmmeBogStatus.StemmmeBogStatusID) INNER JOIN Personer on StemmeBøger.UddeltTil = Personer.PersonID) inner join AktivType on StemmeBøger.Instrument = AktivType.AktivTypeID) inner join StemmeNummer on StemmeBøger.StemmeType = StemmeNummer.StemmeNummerID)";
 
-        
+
+
+
         public StemmeBogService(IConfiguration configuration) : base(configuration)
         {
 
@@ -130,5 +134,32 @@ namespace AktivStyringRazor.Services
             }
             return stemmeBogs;
         }
+
+        public async Task<List<StemmeBogInJoLi>> GetStemmeBogInJoLiAsync()
+        {
+            List<StemmeBogInJoLi> stemmeBogInJoList = new List<StemmeBogInJoLi>();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryALLJoin, connection);
+                await command.Connection.OpenAsync();
+
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+                while (await reader.ReadAsync())
+                {
+                    int stemmeBogId = reader.GetInt32(0);
+                    string? stemmeBogType = nullableGet.getNullableString(1, reader);
+                    string? bogStatus = nullableGet.getNullableString(2, reader);
+                    string? uddeltTil = nullableGet.getNullableString(3, reader);
+                    string? instrument = nullableGet.getNullableString(4, reader);
+                    string? stemmeType = nullableGet.getNullableString(5, reader);
+
+                    StemmeBogInJoLi stemmeBogInJoLi = new StemmeBogInJoLi(stemmeBogId, stemmeBogType, bogStatus, uddeltTil, instrument, stemmeType);
+                    stemmeBogInJoList.Add(stemmeBogInJoLi);
+                }
+            }
+            return stemmeBogInJoList;
+        }
+
+
     }
 }

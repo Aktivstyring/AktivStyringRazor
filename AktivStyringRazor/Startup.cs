@@ -35,6 +35,7 @@ namespace AktivStyringRazor
             services.AddTransient<IEnsemblerService, EnsemblerService>();
             services.AddTransient<IEnsembleDeltagerService, EnsembleDeltagerService>();
             services.AddTransient<IRollerService, RolleService>();
+            services.AddTransient<IStemmeBogService, StemmeBogService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

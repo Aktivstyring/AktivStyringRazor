@@ -1,0 +1,60 @@
+﻿@page
+@model AktivStyringRazor.Pages.StemmeBøger.StemmeBøgerModel
+@{
+    ViewData["Title"] = "Stemmebøger";
+}
+
+
+<form>
+    <p class="SeaBar">
+        Search: <input type="text" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4 class="LisTNvn" style="color: darkblue">Stemmebogs Liste</h4>
+
+<table>
+    <thead class="LisTHeader">
+    <tr class="THeaderTRLis">
+        <th class="THKolLisNvn">
+            Stemmebog ID
+        </th>
+        <th class="THKolLisNvn">
+            Stemmebog Type
+        </th>
+        <th class="THKolLisNvn">
+            Bog Status
+        </th>
+        <th class="THKolLisNvn">
+            Uddelt til
+        </th>
+        <th class="THKolLisNvn">
+            Instrument
+        </th>
+        <th class="THKolLisNvn">
+            Stemme Type
+        </th>
+    </tr>
+    </thead>
+    <tbody class="LisTBodyRow">
+        @if (Model.StemmeBogInJoLis.Count() != 0)
+        {
+            @foreach (var item in Model.StemmeBogInJoLis)
+            {
+                <tr class="TBodyTRowLisItem">
+                    <td class="TBKolLisItem">@item.StemmeBogTypeID</td>
+                    <td class="TBKolLisItem">@item.StemmeBogTypeID</td>
+                    <td class="TBKolLisItem">@item.BogStatus</td>
+                    <td class="TBKolLisItem">@item.UddeltTil</td>
+                    <td class="TBKolLisItem">@item.Instrument</td>
+                    <td class="TBKolLisItem">@item.StemmeType</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-page="StemmeBøger/Create">Create new Stemmebog</a>
+</p>
