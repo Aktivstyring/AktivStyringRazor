@@ -13,7 +13,7 @@ namespace AktivStyringRazor.Services
     {
         private string queryByPId = "select * from AktivUdleveringer where PersonID = @personID";
         private string insertSql = "insert into AktivUdleveringer(PersonID, AktivID, AktivUddelt) values(@PersonID,@AktivID,GETDATE())";
-        private string qByPIdJoin = "select AktivUdleveringer.AktivID, AktivType.AktivType, Aktiver.Maerke, Aktiver.SerieNr, AktivUdleveringer.AktivUddelt, AktivUdleveringer.AktivIndsamlet from ((AktivUdleveringer INNER JOIN Aktiver on AktivUdleveringer.AktivID=Aktiver.AktivID) INNER JOIN AktivType on Aktiver.AktivTypeID = AktivType.AktivTypeID) where PersonID = @personID";
+        private string qByPIdJoin = "select AktivUdleveringer.AktivID, AktivType.AktivType, Aktiver.Maerke, Aktiver.SerieNr, AktivUdleveringer.AktivUddelt, AktivUdleveringer.AktivIndsamlet from ((AktivUdleveringer INNER JOIN Aktiver on AktivUdleveringer.AktivID=Aktiver.AktivID) INNER JOIN AktivType on Aktiver.AktivTypeID = AktivType.AktivTypeID) where PersonID = @personID ORDER BY AktivUdleveringer.AktivIndsamlet ASC, AktivUdleveringer.AktivUddelt DESC";
         public AktivudleveringService(IConfiguration configuration) : base(configuration)
         {
 
