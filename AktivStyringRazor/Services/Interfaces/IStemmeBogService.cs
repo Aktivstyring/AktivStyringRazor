@@ -9,6 +9,7 @@ namespace AktivStyringRazor.Services.Interfaces
     public interface IStemmeBogService
     {
         Task<List<StemmeBog>> GetStemmeBogAsync();
+        Task<List<StemmeBogInJoLi>> GetStemmeBogInJoLiAsync();
         Task<bool> AddStemmeBogAsync(StemmeBog stemmeBog);
         Task<StemmeBog> GetStemmeBogByIdAsync(int stemmeBogID);
         Task<StemmeBog> DeleteStemmeBogAsync(int stemmeBogID);

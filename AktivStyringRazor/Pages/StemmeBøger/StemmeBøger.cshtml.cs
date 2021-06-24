@@ -12,38 +12,58 @@ namespace AktivStyringRazor.Pages.StemmeBøger
     public class StemmeBøgerModel : PageModel
     {
 
-        private IStemmeBogTypeService sBTypeService;
-        private IStemmeBogStatusService sBStatusService;
-        private IPersonerService persService;
-        private IAktivTyperService aTypService;
-        private IStemmeNummerService sNrService;
-        private IStemmeBogService sBogService;
-        [BindProperty]
-        public Personer StemmeBogPerson { get; set; }
-        public List<StemmeBogType> BogTypeList { get; set; }
-        public List<StemmeBogStatus> BogStatusList { get; set; }
-        public List<Models.AktivTyper> AktivTyperList { get; set; }
-        public List<StemmeNummer> StemmeNummerList { get; set; }
-        public List<Models.StemmeBog> StemmeBoger { get; set; }
-        [BindProperty]
-        public int StemmeBogID { get; set; }
+        public List<Models.StemmeBogInJoLi> StemmeBogInJoLis { get; set; }
+        private IStemmeBogService stemmeBogService;
 
-
-        public StemmeBøgerModel(IStemmeBogService steBogService, IStemmeBogTypeService sBogTypeService, IStemmeBogStatusService sBogStatusService, IPersonerService personService, IAktivTyperService aTyperService, IStemmeNummerService stemmeNrService, IStemmeBogService stemBogService)
+        public StemmeBøgerModel(IStemmeBogService steBLService)
         {
-            this.sBogService = steBogService;
-            this.sBTypeService = sBogTypeService;
-            this.sBStatusService = sBogStatusService;
-            this.persService = personService;
-            this.aTypService = aTyperService;
-            this.sNrService = stemmeNrService;
-            
+            this.stemmeBogService = steBLService;
         }
-        
+
 
         public async Task OnGetAsync()
         {
-            StemmeBoger = await sBogService.GetStemmeBogAsync();
+            StemmeBogInJoLis = await stemmeBogService.GetStemmeBogInJoLiAsync();
         }
     }
 }
+
+
+
+
+
+
+
+//private IStemmeBogTypeService sBTypeService;
+//private IStemmeBogStatusService sBStatusService;
+//private IPersonerService persService;
+//private IAktivTyperService aTypService;
+//private IStemmeNummerService sNrService;
+//private IStemmeBogService sBogService;
+//[BindProperty]
+//public Personer StemmeBogPerson { get; set; }
+//public List<StemmeBogType> BogTypeList { get; set; }
+//public List<StemmeBogStatus> BogStatusList { get; set; }
+//public List<Models.AktivTyper> AktivTyperList { get; set; }
+//public List<StemmeNummer> StemmeNummerList { get; set; }
+//public List<Models.StemmeBog> StemmeBoger { get; set; }
+//[BindProperty]
+//public int StemmeBogID { get; set; }
+
+
+//public StemmeBøgerModel(IStemmeBogService steBogService, IStemmeBogTypeService sBogTypeService, IStemmeBogStatusService sBogStatusService, IPersonerService personService, IAktivTyperService aTyperService, IStemmeNummerService stemmeNrService, IStemmeBogService stemBogService)
+//{
+//this.sBogService = steBogService;
+//this.sBTypeService = sBogTypeService;
+//this.sBStatusService = sBogStatusService;
+//this.persService = personService;
+//this.aTypService = aTyperService;
+//this.sNrService = stemmeNrService;
+
+//}
+
+
+//public async Task OnGetAsync()
+//{
+//StemmeBoger = await sBogService.GetStemmeBogAsync();
+//}

@@ -12,31 +12,47 @@
     </p>
 </form>
 
-<h4 class="LisTNvn" style="color: darkblue">List af Ensemble Roller</h4>
+<h4 class="LisTNvn" style="color: darkblue">Stemmebogs Liste</h4>
 
 <table>
     <thead class="LisTHeader">
-        <tr class="THeaderTRLis">
-            <th class="THKolLisNvn">
-                RolleID
-            </th>
-            <th class="THKolLisNvn">
-                Rolle
-            </th>
-        </tr>
+    <tr class="THeaderTRLis">
+        <th class="THKolLisNvn">
+            Stemmebog ID
+        </th>
+        <th class="THKolLisNvn">
+            Stemmebog Type
+        </th>
+        <th class="THKolLisNvn">
+            Bog Status
+        </th>
+        <th class="THKolLisNvn">
+            Uddelt til
+        </th>
+        <th class="THKolLisNvn">
+            Instrument
+        </th>
+        <th class="THKolLisNvn">
+            Stemme Type
+        </th>
+    </tr>
     </thead>
-    @*<tbody class="LisTBodyRow">
-        @if (Model.Roller.Count() != 0)
+    <tbody class="LisTBodyRow">
+        @if (Model.StemmeBogInJoLis.Count() != 0)
         {
-            @foreach (var item in Model.Roller)
+            @foreach (var item in Model.StemmeBogInJoLis)
             {
                 <tr class="TBodyTRowLisItem">
-                    <td class="TBKolLisItem">@item.RolleID</td>
-                    <td class="TBKolLisItem">@item.Rolle</td>
+                    <td class="TBKolLisItem">@item.StemmeBogTypeID</td>
+                    <td class="TBKolLisItem">@item.StemmeBogTypeID</td>
+                    <td class="TBKolLisItem">@item.BogStatus</td>
+                    <td class="TBKolLisItem">@item.UddeltTil</td>
+                    <td class="TBKolLisItem">@item.Instrument</td>
+                    <td class="TBKolLisItem">@item.StemmeType</td>
                 </tr>
             }
         }
-    </tbody>*@
+    </tbody>
 </table>
 
 <p>
